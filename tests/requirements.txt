@@ -1,4 +1,5 @@
 Flask
+Flask-SQLAlchemy
 nose
 rednose
 nose-cov
