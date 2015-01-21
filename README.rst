@@ -3,22 +3,22 @@ flask-excel - Let you focus on data, instead of file formats
 ============================================================
 
 .. image:: https://api.travis-ci.org/chfw/flask-excel.svg?branch=master
-   :target: http://travis-ci.org/chfw/flask-excel
+   :target: http://travis-ci.org/chfw/Flask-Excel
 
-.. image:: https://coveralls.io/repos/chfw/flask-excel/badge.png?branch=master 
-   :target: https://coveralls.io/r/chfw/flask-excel?branch=master 
+.. image:: https://coveralls.io/repos/chfw/Flask-Excel/badge.svg
+   :target: https://coveralls.io/r/chfw/Flask-Excel 
 
 .. image:: https://readthedocs.org/projects/flask-excel/badge/?version=latest
    :target: http://flask-excel.readthedocs.org/en/latest/
 
-.. image:: https://pypip.in/version/flask-excel/badge.png
-   :target: https://pypi.python.org/pypi/flask-excel
+.. image:: https://pypip.in/version/Flask-Excel/badge.png
+   :target: https://pypi.python.org/pypi/Flask-Excel
 
-.. image:: https://pypip.in/d/flask-excel/badge.png
-   :target: https://pypi.python.org/pypi/flask-excel
+.. image:: https://pypip.in/d/Flask-Excel/badge.png
+   :target: https://pypi.python.org/pypi/Flask-Excel
 
-.. image:: https://pypip.in/py_versions/flask-excel/badge.png
-   :target: https://pypi.python.org/pypi/flask-excel
+.. image:: https://pypip.in/py_versions/Flask-Excel/badge.png
+   :target: https://pypi.python.org/pypi/Flask-Excel
 
 .. image:: http://img.shields.io/gittip/chfw.svg
    :target: https://gratipay.com/chfw/
@@ -109,4 +109,4 @@ Dependencies
 =============
 
 * pyexcel
-
+* pyexcel-webio

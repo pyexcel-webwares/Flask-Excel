@@ -12,6 +12,7 @@ python:
 install:
   - pip install git+https://github.com/chfw/pyexcel-io.git  
   - pip install git+https://github.com/chfw/pyexcel.git
+  - pip install git+https://github.com/chfw/pyexcel-webio.git
   - pip install -r tests/requirements.txt --use-mirrors
   - if [[ $TRAVIS_PYTHON_VERSION == "2.6" ]]; then pip install pyexcel-ods; fi
   - if [[ $TRAVIS_PYTHON_VERSION == "2.7" ]]; then pip install pyexcel-ods; fi
