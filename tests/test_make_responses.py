@@ -51,5 +51,4 @@ class TestBook:
                                      content_type="multipart/form-data")
             assert response.content_type == "application/vnd.ms-excel"
             book2 = pe.load_book_from_memory('xls', response.data)
-            print book2.to_dict()
             assert book2.to_dict() == self.content

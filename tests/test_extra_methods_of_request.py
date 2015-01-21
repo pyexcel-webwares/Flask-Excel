@@ -28,8 +28,7 @@ class TestSheet:
                                      data={"file": (io, "test.xls")},
                                      content_type="multipart/form-data")
             expected = test_sample[struct_type]
-            print json.loads(response.data)
-            assert json.loads(response.data) == expected
+            assert json.loads(response.data.decode('utf-8')) == expected
 
 
 class TestBook:
@@ -52,5 +51,4 @@ class TestBook:
             response = self.app.post('/respond/%s' % struct_type, buffered=True,
                                      data={"file": (io, "test.xls")},
                                      content_type="multipart/form-data")
-            print json.loads(response.data)
-            assert json.loads(response.data) == expected
+            assert json.loads(response.data.decode('utf-8')) == expected
