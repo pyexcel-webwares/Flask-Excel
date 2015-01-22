@@ -108,5 +108,6 @@ Here are some example codes::
 Dependencies
 =============
 
+* Flask
 * pyexcel
 * pyexcel-webio

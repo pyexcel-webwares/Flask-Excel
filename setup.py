@@ -10,7 +10,8 @@ with open("README.rst", 'r') as readme:
 
 dependencies = [
     'pyexcel>=0.1.2',
-    'pyexcel-webio>=0.0.1'
+    'pyexcel-webio>=0.0.1',
+    'Flask>=0.10.1'
 ]
 
 setup(
