@@ -62,13 +62,13 @@ Installation
 ============
 You can install it via pip::
 
-    $ pip install flask-pyexcel
+    $ pip install Flask-Excel
 
 
 or clone it and install it::
 
-    $ git clone http://github.com/chfw/flask-pyexcel.git
-    $ cd flask-pyexcel
+    $ git clone http://github.com/chfw/Flask-Excel.git
+    $ cd Flask-Excel
     $ python setup.py install
 
 Installation of individual plugins , please refer to individual plugin page.
