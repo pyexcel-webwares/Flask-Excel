@@ -20,7 +20,7 @@ class TestSheet:
                 db.create_all()
             print("Uploading %s" % upload_file_type)
             file_name = "test.%s" % upload_file_type
-            io = pe.save_as(array=array, file_type=upload_file_type)
+            io = pe.save_as(array=array, dest_file_type=upload_file_type)
             response = self.app.post('/upload/categories',
                                      buffered=True,
                                      data={"file": (io, file_name)},
@@ -53,7 +53,7 @@ class TestBook:
                 db.create_all()
             print("Uploading %s" % upload_file_type)
             file_name = "test.%s" % upload_file_type
-            io = pe.save_book_as(bookdict=data, file_type=upload_file_type)
+            io = pe.save_book_as(bookdict=data, dest_file_type=upload_file_type)
             response = self.app.post('/upload/all',
                                      buffered=True,
                                      data={"file": (io, file_name)},
