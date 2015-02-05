@@ -1,5 +1,5 @@
 """
-database_example_formatted.py
+tiny_example.py
 :copyright: (c) 2015 by C. W.
 :license: GPL v3 or BSD
 """

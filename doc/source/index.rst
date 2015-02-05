@@ -6,6 +6,13 @@
 Welcome to Flask-Excel's documentation!
 =======================================
 
+:Author: C.W.
+:Source code: http://github.com/chfw/Flask-Excel
+:Issues: http://github.com/chfw/Flask-Excel/issues
+:License: GPL v3 or BSD
+:Version: |version|
+:Generated: |today|
+
 **Flask-Excel** is based on `pyexcel <https://github.com/chfw/pyexcel>`_ and makes it easy to consume/produce information stored in excel files over HTTP protocol as well as on file system. This library can turn the excel data into Pythonic a list of lists, a list of records(dictionaries), dictionaries of lists. And vice versa. Hence it lets you focus on data in Flask based web development, instead of file formats.
 
 The highlighted features are:
@@ -35,7 +42,7 @@ The highlighted features are:
 .. _ods3: https://github.com/chfw/pyexcel-ods3
 .. _text: https://github.com/chfw/pyexcel-text
 
-This library make infomation processing involving various excel files as easy as processing array, dictionary when processing file upload/download, data import into and export from SQL databases, information analysis and persistence. It uses **pyexcel** and its plugins: 1) to provide one uniform programming interface to handle csv, tsv, xls, xlsx, xlsm and ods formats. 2) to provide one-stop utility to import the data in uploaded file into a database and to export tables in a database as excel files for file download 3) to provide the same interface for information persistence at server side: saving a uploaded excel file to and loading a saved excel file from file system.
+This library makes infomation processing involving various excel files as easy as processing array, dictionary when processing file upload/download, data import into and export from SQL databases, information analysis and persistence. It uses **pyexcel** and its plugins: 1) to provide one uniform programming interface to handle csv, tsv, xls, xlsx, xlsm and ods formats. 2) to provide one-stop utility to import the data in uploaded file into a database and to export tables in a database as excel files for file download 3) to provide the same interface for information persistence at server side: saving a uploaded excel file to and loading a saved excel file from file system.
 
 Quick start
 ------------
@@ -174,6 +181,8 @@ Write up the view function for data export::
         return excel.make_response_from_tables(db.session, [Category, Post], "xls")
 
 
+Then run the example again. Visit http://localhost:5000/import and upload `sample-data.xls <https://github.com/chfw/Flask-Excel/blob/master/sample-data.xls>`_ . Then visit http://localhost:5000/export to download the data back.
+		
 All supported data types
 --------------------------
 
@@ -256,9 +265,10 @@ API Reference
       :param keywords: additional keywords to pyexcel library
       :returns: a two dimensional array, a list of lists
 
-   .. method:: save_to_database(field_name=None, table=None, **keywords)
+   .. method:: save_to_database(field_name=None, session=None, table=None, **keywords)
 
       :param field_name: same as :meth:`~flask_excel.ExcelRequest.get_sheet`
+      :param session: a SQLAlchemy session						
       :param table: a database table or a tuple which have this sequence (table, table_init_func, mapdict, name_columns_by_row, name_rows_by_column)
       :param table_init_func: it is needed when your table had custom __init__ function
       :param mapdict: it is needed when the uploaded sheet had a different column headers than the table column names this mapdict tells which column of the upload sheet maps to which column of the table
@@ -267,9 +277,10 @@ API Reference
       :param keywords: additional keywords to pyexcel library
 
 
-   .. method:: save_book_to_database(field_name=None, tables=None, **keywords)
+   .. method:: save_book_to_database(field_name=None, session=None, tables=None, **keywords)
 
       :param field_name: save as  :meth:`~flask_excel.ExcelRequest.get_sheet`
+      :param session: a SQLAlchemy session						
       :param tables: a list of database tables or tuples which have this sequence (table, table_init_func, mapdict, name_columns_by_row, name_rows_by_column)
       :param table_init_funcs: it is needed when your table had custom __init__ function
       :param mapdict: it is needed when the uploaded sheet had a different column headers than the table column names. this mapdict tells which column of the upload sheet maps to which column of the table
