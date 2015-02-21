@@ -1,3 +1,13 @@
+"""
+    flask_excel
+    ~~~~~~~~~~~~~~~~~~~
+
+    A flask extension that provides one application programming interface
+    to read and write data in different excel file formats
+
+    :copyright: (c) 2015 by Onni Software Ltd.
+    :license: New BSD License
+"""
 from flask import Flask, Request, Response
 import pyexcel as pe
 import pyexcel_webio as webio

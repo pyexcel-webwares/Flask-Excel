@@ -104,6 +104,11 @@ Here are some example codes::
     if __name__ == "__main__":
         app.run()
 
+License
+==========
+
+New BSD License
+
 
 Dependencies
 =============
