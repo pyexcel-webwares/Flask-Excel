@@ -10,4 +10,3 @@ import pyexcel.ext.xls # for xls file
 import pyexcel.ext.xlsx # for xlsx file
 import pyexcel.ext.ods # for ods file
 
-If 'field_name' is omitted in any of the function
