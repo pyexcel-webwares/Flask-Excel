@@ -76,7 +76,7 @@ A minimal application may look like this::
         app.run()
 
 
-The tiny application exposes two urls: one for file upload and the other for file donload. The former url presents a simple file upload html and responds back in json with the content of the uploaded file. The file upload handler uses `request.get_array` to parse the uploaded file and gets an array back. The parameter **file** is coded in the html form::
+The tiny application exposes two urls: one for file upload and the other for file donload. The former url presents a simple file upload html and responds back in json with the content of the uploaded file. Here is an `example file <https://github.com/chfw/Flask-Excel/blob/master/examples/example_for_upload.csv>` for testing but you can upload any other excel file. The file upload handler uses `request.get_array` to parse the uploaded file and gets an array back. The parameter **file** is coded in the html form::
 
     <input ... name=file>
 
