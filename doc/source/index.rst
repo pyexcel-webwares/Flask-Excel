@@ -56,7 +56,7 @@ A minimal application may look like this::
     @app.route("/upload", methods=['GET', 'POST'])
     def upload_file():
         if request.method == 'POST':
-            return jsonify({"result": request.get_array('file')})
+            return jsonify({"result": request.get_array(field_name='file')})
         return '''
         <!doctype html>
         <title>Upload an excel file</title>
@@ -79,6 +79,9 @@ A minimal application may look like this::
 The tiny application exposes two urls: one for file upload and the other for file donload. The former url presents a simple file upload html and responds back in json with the content of the uploaded file. Here is an `example file <https://github.com/chfw/Flask-Excel/blob/master/examples/example_for_upload.csv>` for testing but you can upload any other excel file. The file upload handler uses `request.get_array` to parse the uploaded file and gets an array back. The parameter **file** is coded in the html form::
 
     <input ... name=file>
+
+.. warning::
+   If 'field_name' was not specified, for example `request.get_array('file')` in upload_file() function, your browser would display "Bad Request: The browser (or proxy) sent a request that this server could not understand."
 
 The latter simply throws back a csv file whenever a http request is made to http://localhost:50000/download/. `excel.make_response_from_array` takes a list of lists and a file type as parameters and sets up the mime type of the http response. If you would like to give 'tsvz' a go, please change "csv" to "tsvz".
 
