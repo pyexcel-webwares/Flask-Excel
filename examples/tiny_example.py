@@ -11,7 +11,7 @@ app=Flask(__name__)
 @app.route("/upload", methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
-        return jsonify({"result": request.get_array('file')})
+        return jsonify({"result": request.get_array(field_name='file')})
     return '''
     <!doctype html>
     <title>Upload an excel file</title>
