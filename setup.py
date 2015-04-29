@@ -20,7 +20,7 @@ setup(
     version='0.0.2',
     author_email="wangc_2011@hotmail.com",
     url="https://github.com/chfw/Flask-Excel",
-    description='A flask extension using pyexcel to read, manipulate and write data in different excel formats: csv, ods, xls, xlsx and xlsm.',
+    description='A flask extension that provides one application programming interface to read and write data in different excel file formats',
     install_requires=dependencies,
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     include_package_data=True,
@@ -28,7 +28,7 @@ setup(
     zip_safe=False,
     tests_require=['nose'],
     keywords=['API', 'Flask', 'Excel', 'pyexcel', 'xls', 'xlsx', 'ods', 'csv'],
-    license='GNU GPLv3 or BSD',
+    license='New BSD',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
