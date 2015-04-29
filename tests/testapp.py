@@ -101,7 +101,7 @@ def upload_categories():
     def table_init_func(row):
         return Category(row['name'])
     request.save_to_database(field_name='file', session=db.session,
-                             table=(Category, table_init_func))
+                             table=Category, initializer=table_init_func)
     return excel.make_response_from_a_table(db.session, Category, "xls")
 
 @app.route("/upload/all", methods=['POST'])
@@ -116,6 +116,6 @@ def upload_all():
         p = Post(row['title'], row['body'], c, row['pub_date'])
         return p
     request.save_book_to_database(field_name='file', session=db.session,
-                                  tables=[(Category, category_init_func),
-                                          (Post, post_init_func)])
+                                  tables=[Category, Post],
+                                  initializers=[category_init_func, post_init_func])
     return excel.make_response_from_tables(db.session, [Category, Post], "xls")

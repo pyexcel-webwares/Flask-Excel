@@ -184,24 +184,39 @@ Write up the view function for data export::
 
 
 Then run the example again. Visit http://localhost:5000/import and upload `sample-data.xls <https://github.com/chfw/Flask-Excel/blob/master/sample-data.xls>`_ . Then visit http://localhost:5000/export to download the data back.
-		
+
+Export filtered query sets
+-----------------------------
+
+Previous example shows you how to dump one or more tables over http protocol. Hereby, let's look at how to turn a query sets into an excel sheet. You can
+pass a query sets and an array of selected column names to :meth:`~flask_excel.make_response_from_query_sets` and generate an excel sheet from it::
+
+    @app.route("/custom_export", methods=['GET'])
+    def docustomexport():
+        query_sets = Category.query.filter_by(id=1).all()
+        column_names = ['id', 'name']
+        return excel.make_response_from_query_sets(query_sets, column_names, "xls")
+
+Then visit http://localhost:5000/custom_export to download the data
+
 All supported data types
 --------------------------
 
 The example application likes to have array but it is not just about arrays. Here is table of functions for all supported data types:
 
-=========================== ======================================================= =================================================
+=========================== ======================================================= ==================================================
 data structure              from file to data structures                            from data structures to response
-=========================== ======================================================= =================================================
+=========================== ======================================================= ==================================================
 dict                        :meth:`~flask_excel.ExcelRequest.get_dict`              :meth:`~flask_excel.make_response_from_dict`
 records                     :meth:`~flask_excel.ExcelRequest.get_records`           :meth:`~flask_excel.make_response_from_records`
 a list of lists             :meth:`~flask_excel.ExcelRequest.get_array`             :meth:`~flask_excel.make_response_from_array`
 dict of a list of lists     :meth:`~flask_excel.ExcelRequest.get_book_dict`         :meth:`~flask_excel.make_response_from_book_dict`
-:class:`~pyexcel.Sheet`     :meth:`~flask_excel.ExcelRequest.get_sheet`             :meth:`~flask_excel.make_response`
-:class:`~pyexcel.Book`      :meth:`~flask_excel.ExcelRequest.get_book`              :meth:`~flask_excel.make_response`
+:class:`pyexcel.Sheet`      :meth:`~flask_excel.ExcelRequest.get_sheet`             :meth:`~flask_excel.make_response`
+:class:`pyexcel.Book`       :meth:`~flask_excel.ExcelRequest.get_book`              :meth:`~flask_excel.make_response`
 database table              :meth:`~flask_excel.ExcelRequest.save_to_database`      :meth:`~flask_excel.make_response_from_a_table` 
 a list of database tables   :meth:`~flask_excel.ExcelRequest.save_book_to_database` :meth:`~flask_excel.make_response_from_tables` 
-=========================== ======================================================= =================================================
+a database query sets                                                               :meth:`~flask_excel.make_response_from_query_sets`
+=========================== ======================================================= ==================================================
 
 See more examples of the data structures in :ref:`pyexcel documentation<pyexcel:a-list-of-data-structures>`
 
@@ -220,7 +235,7 @@ API Reference
       :param sheet_name: For an excel book, there could be multiple sheets. If it is left
                          unspecified, the sheet at index 0 is loaded. For 'csv', 'tsv' file,
                          *sheet_name* should be None anyway.
-      :param keywords: additional keywords to pyexcel library
+      :param keywords: additional keywords to :meth:`pyexcel.get_sheet`
       :returns: A sheet object
 
       The following html form, the *field_name* should be "file"::
@@ -267,28 +282,23 @@ API Reference
       :param keywords: additional keywords to pyexcel library
       :returns: a two dimensional array, a list of lists
 
-   .. method:: save_to_database(field_name=None, session=None, table=None, **keywords)
+   .. method:: save_to_database(field_name=None, session=None, table=None, initializer=None, mapdict=None **keywords)
 
       :param field_name: same as :meth:`~flask_excel.ExcelRequest.get_sheet`
       :param session: a SQLAlchemy session						
-      :param table: a database table or a tuple which have this sequence (table, table_init_func, mapdict, name_columns_by_row, name_rows_by_column)
-      :param table_init_func: it is needed when your table had custom __init__ function
-      :param mapdict: it is needed when the uploaded sheet had a different column headers than the table column names this mapdict tells which column of the upload sheet maps to which column of the table
-      :param name_columns_by_row: uses the first row of the sheet to be column headers by default. if you use name_rows_by_column, please set this to -1
-      :param name_rows_by_column: uses a column to name rows.
-      :param keywords: additional keywords to pyexcel library
-
+      :param table: a database table 
+      :param initializer: a custom table initialization function if you have one
+      :param mapdict: the explicit table column names if your excel data do not have the exact column names
+      :param keywords: additional keywords to :meth:`pyexcel.Sheet.save_to_database`
 
    .. method:: save_book_to_database(field_name=None, session=None, tables=None, **keywords)
 
       :param field_name: save as  :meth:`~flask_excel.ExcelRequest.get_sheet`
-      :param session: a SQLAlchemy session						
-      :param tables: a list of database tables or tuples which have this sequence (table, table_init_func, mapdict, name_columns_by_row, name_rows_by_column)
-      :param table_init_funcs: it is needed when your table had custom __init__ function
-      :param mapdict: it is needed when the uploaded sheet had a different column headers than the table column names. this mapdict tells which column of the upload sheet maps to which column of the table
-      :param name_columns_by_row: uses the first row of each sheet to be column headers by default. if you use name_rows_by_column, please set this to -1
-      :param name_rows_by_column: uses a column to name rows.
-      :param keywords: additional keywords to pyexcel library
+      :param session: a SQLAlchemy sessio
+      :param tables: a list of database tables
+      :param initializers: a list of model initialization functions.
+      :param mapdicts: a list of explicit table column names if your excel data sheets do not have the exact column names
+      :param keywords: additional keywords to :meth:`pyexcel.Book.save_to_database`
 
 
 Response methods
@@ -296,7 +306,7 @@ Response methods
 
    .. method:: make_response(pyexcel_instance, file_type, status=200)
 
-      :param pyexcel_instance: pyexcel.Sheet or pyexcel.Book
+      :param pyexcel_instance: :class:`pyexcel.Sheet` or :class:`pyexcel.Book`
       :param file_type: one of the following strings:
                         
                         * 'csv'
@@ -341,6 +351,15 @@ Response methods
 
       :param session: SQLAlchemy session
       :param table: a SQLAlchemy table
+      :param file_type: same as :meth:`~flask_excel.make_response`
+      :param status: same as :meth:`~flask_excel.make_response`
+
+    .. method:: make_response_from_query_sets(query_sets, column_names, file_type status=200)
+
+      Produce a single sheet Excel book of *file_type* from your custom database queries
+
+      :param query_sets: a query set
+      :param column_names: a nominated column names. It could not be None, otherwise no data is returned.
       :param file_type: same as :meth:`~flask_excel.make_response`
       :param status: same as :meth:`~flask_excel.make_response`
 

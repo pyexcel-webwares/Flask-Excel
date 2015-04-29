@@ -43,6 +43,7 @@ from pyexcel_webio import (
     make_response_from_records,
     make_response_from_book_dict,
     make_response_from_a_table,
+    make_response_from_query_sets,
     make_response_from_tables
 )
 

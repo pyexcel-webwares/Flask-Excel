@@ -1,7 +1,7 @@
 """
 database_example_formatted.py
 :copyright: (c) 2015 by C. W.
-:license: GPL v3 or BSD
+:license: New BSD
 """
 from flask import Flask, request, jsonify
 from flask.ext import excel
@@ -96,6 +96,13 @@ def doimport():
 @app.route("/export", methods=['GET'])
 def doexport():
     return excel.make_response_from_tables(db.session, [Category, Post], "xls")
+
+    
+@app.route("/custom_export", methods=['GET'])
+def docustomexport():
+    query_sets = Category.query.filter_by(id=1).all()
+    column_names = ['id', 'name']
+    return excel.make_response_from_query_sets(query_sets, column_names, "xls")
 
 
 if __name__ == "__main__":
