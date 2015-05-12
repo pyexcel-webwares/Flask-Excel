@@ -22,14 +22,14 @@ class ExcelRequest(webio.ExcelInput, Request):
     def load_single_sheet(self, field_name=None, sheet_name=None, **keywords):
         file_type, file_handle = self._get_file_tuple(field_name)
         return pe.get_sheet(file_type=file_type,
-                            content=file_handle.read(),
+                            file_content=file_handle.read(),
                             sheet_name=sheet_name,
                             **keywords)
 
     def load_book(self, field_name=None, **keywords):
         file_type, file_handle = self._get_file_tuple(field_name)
         return pe.get_book(file_type=file_type,
-                           content=file_handle.read(),
+                           file_content=file_handle.read(),
                            **keywords)
     
 

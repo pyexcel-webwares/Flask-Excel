@@ -25,7 +25,7 @@ class TestSheet:
                                      buffered=True,
                                      data={"file": (io, file_name)},
                                      content_type="multipart/form-data")
-            ret = pe.get_array(file_type="xls", content=response.data)
+            ret = pe.get_array(file_type="xls", file_content=response.data)
             print(ret)
             assert array == ret
 
@@ -59,7 +59,7 @@ class TestBook:
                                      buffered=True,
                                      data={"file": (io, file_name)},
                                      content_type="multipart/form-data")
-            ret = pe.get_book_dict(file_type="xls", content=response.data)
+            ret = pe.get_book_dict(file_type="xls", file_content=response.data)
             print(ret)
             assert data['Category'] == ret['category']
             sheet = pe.Sheet(data['Post'], name_columns_by_row=0)
