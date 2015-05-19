@@ -25,7 +25,7 @@ class TestSheet:
                                      buffered=True,
                                      data={"file": (io, file_name)},
                                      content_type="multipart/form-data")
-            ret = pe.get_array(file_type="xls", content=response.data)
+            ret = pe.get_array(file_type="xls", file_content=response.data)
             print(ret)
             assert array == ret
 
