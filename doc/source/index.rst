@@ -9,7 +9,7 @@ Welcome to Flask-Excel's documentation!
 :Author: C.W.
 :Issues: http://github.com/chfw/Flask-Excel/issues
 :License: New BSD License
-:Version: |version| not release yet
+:Version: |version| 
 :Generated: |today|
 
 **Flask-Excel** is based on `pyexcel <https://github.com/chfw/pyexcel>`_ and makes it easy to consume/produce information stored in excel files over HTTP protocol as well as on file system. This library can turn the excel data into Pythonic a list of lists, a list of records(dictionaries), dictionaries of lists. And vice versa. Hence it lets you focus on data in Flask based web development, instead of file formats.
@@ -22,16 +22,6 @@ The highlighted features are:
 #. provide data persistence as an excel file in server side
 #. supports csv, tsv, csvz, tsvz by default and other formats are supported via the following plugins:
 
-.. note::
-
-Becase version 0.0.2 and its dependencies are still in development, before you start the tutorial, please install the following first::
-
-  pip install git+https://github.com/chfw/pyexcel-io.git  
-  pip install git+https://github.com/chfw/pyexcel.git
-  pip install git+https://github.com/chfw/pyexcel-webio.git
-  pip install git+https://github.com/chfw/pyexcel-xls.git
-  pip install git+https://github.com/chfw/pyexcel-xlsx.git
-  pip install git+https://github.com/chfw/Flask-Excel.git
    
 .. _file-format-list:
 
