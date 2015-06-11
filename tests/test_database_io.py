@@ -63,7 +63,7 @@ class TestBook:
             print(ret)
             assert data['Category'] == ret['category']
             sheet = pe.Sheet(data['Post'], name_columns_by_row=0)
-            sheet.column.format("pub_date", None, lambda d: d.isoformat())
+            sheet.column.format("pub_date", lambda d: d.isoformat())
             sheet2 = pe.Sheet(ret['post'], name_columns_by_row=0)
             for key in sheet.colnames:
                 if key == "category":
