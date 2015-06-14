@@ -1,5 +1,6 @@
 from testapp import app
 import pyexcel as pe
+from _compact import BytesIO, PY2
 
 
 FILE_TYPE_MIME_TABLE = {
@@ -32,6 +33,9 @@ class TestExcelResponse:
                 sheet = pe.Sheet(self.data)
                 sheet.save_to_memory(upload_file_type, io)
                 io.seek(0)
+                if not PY2:
+                    if not isinstance(io, BytesIO):
+                        io = BytesIO(io.getvalue().encode('utf-8'))
                 response = self.app.post('/switch/%s' % download_file_type,
                                          buffered=True,
                                          data={"file": (io, file_name)},
