@@ -1,6 +1,6 @@
 from testapp import app
 import pyexcel as pe
-from _compact import BytesIO
+
 
 FILE_TYPE_MIME_TABLE = {
     "csv": "text/csv",
@@ -28,7 +28,7 @@ class TestExcelResponse:
             file_name = 'test.%s' % upload_file_type
             for download_file_type in FILE_TYPE_MIME_TABLE.keys():
                 print("Uploading %s Downloading %s" % (upload_file_type, download_file_type))
-                io = BytesIO()
+                io = pe.get_io(upload_file_type)
                 sheet = pe.Sheet(self.data)
                 sheet.save_to_memory(upload_file_type, io)
                 io.seek(0)
