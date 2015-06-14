@@ -10,14 +10,14 @@ with open("README.rst", 'r') as readme:
 
 dependencies = [
     'pyexcel>=0.1.5',
-    'pyexcel-webio>=0.0.2',
+    'pyexcel-webio>=0.0.3',
     'Flask>=0.10.1'
 ]
 
 setup(
     name='Flask-Excel',
     author="C. W.",
-    version='0.0.2',
+    version='0.0.3',
     author_email="wangc_2011@hotmail.com",
     url="https://github.com/chfw/Flask-Excel",
     description='A flask extension that provides one application programming interface to read and write data in different excel file formats',
