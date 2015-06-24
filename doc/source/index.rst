@@ -12,7 +12,7 @@ Welcome to Flask-Excel's documentation!
 :Version: |version| 
 :Generated: |today|
 
-**Flask-Excel** is based on `pyexcel <https://github.com/chfw/pyexcel>`_ and makes it easy to consume/produce information stored in excel files over HTTP protocol as well as on file system. This library can turn the excel data into Pythonic a list of lists, a list of records(dictionaries), dictionaries of lists. And vice versa. Hence it lets you focus on data in Flask based web development, instead of file formats.
+**Flask-Excel** is based on `pyexcel <https://github.com/chfw/pyexcel>`_ and makes it easy to consume/produce information stored in excel files over HTTP protocol as well as on file system. This library can turn the excel data into a list of lists, a list of records(dictionaries), dictionaries of lists. And vice versa. Hence it lets you focus on data in Flask based web development, instead of file formats.
 
 The highlighted features are:
 
@@ -27,14 +27,16 @@ The highlighted features are:
 
 .. table:: A list of file formats supported by external plugins
 
-   ================ ========================================================================
-   Plugins          Supported file formats                                      
-   ================ ========================================================================
+   ================ =========================================
+   Plugins          Supported file formats                   
+   ================ =========================================
    `xls`_           xls, xlsx(r), xlsm(r)
    `xlsx`_          xlsx
-   `ods`_           ods (python 2.6, 2.7)                                       
-   `ods3`_          ods (python 2.7, 3.3, 3.4)                                  
-   ================ ========================================================================
+   `ods3`_          ods (python 2.6, 2.7, 3.3, 3.4)
+   `ods`_           ods (python 2.6, 2.7)
+   `text`_          write only)json, rst, mediawiki,
+                    latex, grid, pipe, orgtbl, plain simple
+   ================ =========================================
    
 .. _xls: https://github.com/chfw/pyexcel-xls
 .. _xlsx: https://github.com/chfw/pyexcel-xlsx
