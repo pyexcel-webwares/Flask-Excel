@@ -2,10 +2,7 @@ from flask import Flask, request, jsonify
 from _compact import PY2
 from flask.ext import excel
 import pyexcel.ext.xls
-if PY2:
-    import pyexcel.ext.ods
-else:
-    import pyexcel.ext.ods3
+import pyexcel.ext.ods3
 import pyexcel.ext.xlsx
 from flask.ext.sqlalchemy import SQLAlchemy
 from datetime import datetime
