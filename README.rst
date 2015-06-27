@@ -11,15 +11,6 @@ Flask-Excel - Let you focus on data, instead of file formats
 .. image:: https://readthedocs.org/projects/flask-excel/badge/?version=latest
    :target: http://flask-excel.readthedocs.org/en/latest/
 
-.. image:: https://pypip.in/version/Flask-Excel/badge.png
-   :target: https://pypi.python.org/pypi/Flask-Excel
-
-.. image:: https://pypip.in/d/Flask-Excel/badge.png
-   :target: https://pypi.python.org/pypi/Flask-Excel
-
-.. image:: https://pypip.in/py_versions/Flask-Excel/badge.png
-   :target: https://pypi.python.org/pypi/Flask-Excel
-
 .. image:: http://img.shields.io/gittip/chfw.svg
    :target: https://gratipay.com/chfw/
 

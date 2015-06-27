@@ -34,4 +34,4 @@ from pyexcel_webio import (
     make_response_from_tables
 )
 
-__VERSION__ = '0.0.2'
+__VERSION__ = '0.0.3'

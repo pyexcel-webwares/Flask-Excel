@@ -167,8 +167,9 @@ Write up the view functions for data import::
                 p = Post(row['title'], row['body'], c, row['pub_date'])
                 return p
             request.save_book_to_database(field_name='file', session=db.session,
-                                          tables=[(Category, category_init_func),
-                                                  (Post, post_init_func)])
+                                          tables=[Category, Post],
+                                          initializers=(category_init_func,
+					                post_init_func])
             return "Saved"
         return '''
         <!doctype html>
@@ -294,7 +295,7 @@ API Reference
       :param mapdict: the explicit table column names if your excel data do not have the exact column names
       :param keywords: additional keywords to :meth:`pyexcel.Sheet.save_to_database`
 
-   .. method:: save_book_to_database(field_name=None, session=None, tables=None, **keywords)
+   .. method:: save_book_to_database(field_name=None, session=None, tables=None, initializers=None, mapdicts=None, **keywords)
 
       :param field_name: save as  :meth:`~flask_excel.ExcelRequest.get_sheet`
       :param session: a SQLAlchemy sessio
@@ -357,7 +358,7 @@ Response methods
       :param file_type: same as :meth:`~flask_excel.make_response`
       :param status: same as :meth:`~flask_excel.make_response`
 
-    .. method:: make_response_from_query_sets(query_sets, column_names, file_type status=200)
+   .. method:: make_response_from_query_sets(query_sets, column_names, file_type status=200)
 
       Produce a single sheet Excel book of *file_type* from your custom database queries
 

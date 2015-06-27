@@ -80,8 +80,8 @@ def doimport():
             p = Post(row['title'], row['body'], c, row['pub_date'])
             return p
         request.save_book_to_database(field_name='file', session=db.session,
-                                      tables=[(Category, category_init_func),
-                                              (Post, post_init_func)])
+                                      tables=[Category, Post],
+                                      initializers=[category_init_func,post_init_func])
         return "Saved"
     return '''
     <!doctype html>
