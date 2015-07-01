@@ -15,6 +15,7 @@ install:
   - pip install git+https://github.com/chfw/pyexcel-xls.git
   - pip install git+https://github.com/chfw/pyexcel-xlsx.git 
   - pip install git+https://github.com/T0ha/ezodf.git
+  - if [[ $TRAVIS_PYTHON_VERSION == "2.6" ]]; then pip install weakrefset; fi
   - pip install git+https://github.com/chfw/pyexcel-ods3.git 
   - pip install -r tests/requirements.txt --use-mirrors
 script:
