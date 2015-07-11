@@ -46,7 +46,7 @@ Plugins          Supported file formats
 `pyexcel-xlsx`_  xlsx
 `pyexcel-ods`_   ods (python 2.6, 2.7)                     
 `pyexcel-ods3`_  ods (python 2.7, 3.3, 3.4)                
-`text`_          write only)json, rst, mediawiki,
+`pyexce-text`_   write only)json, rst, mediawiki,
                  latex, grid, pipe, orgtbl, plain simple
 ================ ==========================================
 
