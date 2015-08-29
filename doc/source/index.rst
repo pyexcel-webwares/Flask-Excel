@@ -326,7 +326,7 @@ API Reference
    .. method:: save_book_to_database(field_name=None, session=None, tables=None, initializers=None, mapdicts=None, **keywords)
 
       :param field_name: save as  :meth:`~flask_excel.ExcelRequest.get_sheet`
-      :param session: a SQLAlchemy sessio
+      :param session: a SQLAlchemy session
       :param tables: a list of database tables
       :param initializers: a list of model initialization functions.
       :param mapdicts: a list of explicit table column names if your excel data sheets do not have the exact column names
