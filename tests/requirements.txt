@@ -5,6 +5,11 @@ rednose
 nose-cov
 python-coveralls
 coverage
-pyexcel-xls
-pyexcel-xlsx
+-e git+git@github.com:chfw/pyexcel.git@040cd392ec40069ac1a0f6df755694c8216366d8#egg=pyexcel-master
+pyexcel-io==0.0.8
+pyexcel-ods3==0.0.8
+pyexcel-webio==0.0.3
+pyexcel-xls==0.0.7
+pyexcel-xlsx==0.0.7
+-e git+https://github.com/T0ha/ezodf.git@2c69103e6c0715adb0e36562cb2e6325fd776112#egg=ezodf-master
 lxml

@@ -9,14 +9,7 @@ python:
   - 3.3
   - 3.4
 install:
-  - pip install git+https://github.com/chfw/pyexcel-io.git  
-  - pip install git+https://github.com/chfw/pyexcel.git
-  - pip install git+https://github.com/chfw/pyexcel-webio.git
-  - pip install git+https://github.com/chfw/pyexcel-xls.git
-  - pip install git+https://github.com/chfw/pyexcel-xlsx.git 
-  - pip install git+https://github.com/T0ha/ezodf.git
   - if [[ $TRAVIS_PYTHON_VERSION == "2.6" ]]; then pip install weakrefset; fi
-  - pip install git+https://github.com/chfw/pyexcel-ods3.git 
   - pip install -r tests/requirements.txt --use-mirrors
 script:
   make test
