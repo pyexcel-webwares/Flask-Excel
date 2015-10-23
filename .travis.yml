@@ -11,7 +11,7 @@ python:
   - 3.5
 install:
   - if [[ $TRAVIS_PYTHON_VERSION == "2.6" ]]; then pip install weakrefset; fi
-  - pip install -r tests/requirements.txt --use-mirrors
+  - pip install -r tests/requirements.txt
 script:
   make test
 after_success:
