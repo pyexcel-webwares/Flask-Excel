@@ -14,11 +14,11 @@ dependencies = [
     'Flask>=0.10.1'
 ]
 extras = {
-    'xls': ['pyexcel-xls==0.0.7'],
-    'xlsx': ['pyexcel-xlsx==0.0.7'],
+    'xls': ['pyexcel-xls>=0.0.7'],
+    'xlsx': ['pyexcel-xlsx>=0.0.7'],
     'ods3': [
-        'pyexcel-ods3==0.0.8',
-        'git+https://github.com/T0ha/ezodf.git@2c69103e6c0715adb0e36562cb2e6325fd776112#egg=ezodf-master',
+        'pyexcel-ods3>=0.0.8',
+        'https://github.com/T0ha/ezodf/archive/2c69103e6c0715adb0e36562cb2e6325fd776112.zip',
     ],
 }
 
