@@ -1,2 +1,4 @@
 *.pyc
 *~
+.coverage
+tests/tmp.db

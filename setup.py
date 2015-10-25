@@ -13,6 +13,14 @@ dependencies = [
     'pyexcel-webio>=0.0.3',
     'Flask>=0.10.1'
 ]
+extras = {
+    'xls': ['pyexcel-xls>=0.0.7'],
+    'xlsx': ['pyexcel-xlsx>=0.0.7'],
+    'ods3': [
+        'pyexcel-ods3>=0.0.8',
+        'https://github.com/T0ha/ezodf/archive/2c69103e6c0715adb0e36562cb2e6325fd776112.zip',
+    ],
+}
 
 setup(
     name='Flask-Excel',
@@ -22,6 +30,7 @@ setup(
     url="https://github.com/chfw/Flask-Excel",
     description='A flask extension that provides one application programming interface to read and write data in different excel file formats',
     install_requires=dependencies,
+    extras_require=extras,
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     include_package_data=True,
     long_description=README_txt,

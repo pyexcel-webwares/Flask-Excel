@@ -5,6 +5,11 @@ rednose
 nose-cov
 python-coveralls
 coverage
-pyexcel-xls
-pyexcel-xlsx
+pyexcel>=0.1.7
+pyexcel-io>=0.0.8
+pyexcel-ods3>=0.0.8
+pyexcel-webio>=0.0.3
+pyexcel-xls>=0.0.7
+pyexcel-xlsx>=0.0.7
+https://github.com/T0ha/ezodf/archive/2c69103e6c0715adb0e36562cb2e6325fd776112.zip
 lxml
