@@ -1,6 +1,6 @@
 from testapp import app
 import pyexcel as pe
-from _compact import OrderedDict, BytesIO
+from _compact import OrderedDict
 
     
 class TestSheet:
@@ -16,16 +16,14 @@ class TestSheet:
     def test_array(self):
         for struct_type in ["array", "dict", "records"]:
             print("Testing %s" % struct_type)
-            io = BytesIO()
-            sheet = pe.Sheet(self.data)
-            sheet.save_to_memory('xls', io)
+            io = pe.save_as(dest_file_type="xls", array=self.data)
             io.seek(0)
             response = self.app.post('/exchange/%s' % struct_type,
                                      buffered=True,
                                      data={"file": (io, "test.xls")},
                                      content_type="multipart/form-data")
             assert response.content_type == "application/vnd.ms-excel"
-            sheet = pe.load_from_memory('xls', response.data)
+            sheet = pe.get_sheet(file_type='xls', file_content=response.data)
             assert sheet.to_array() == self.data
 
 
@@ -41,14 +39,11 @@ class TestBook:
 
     def test_book(self):
         for struct_type in ["book", "book_dict"]:
-            io = BytesIO()
-            book = pe.Book(self.content)
-            book.save_to_memory('xls', io)
-            io.seek(0)
+            io = pe.save_book_as(bookdict=self.content, dest_file_type="xls")
             response = self.app.post('/exchange/%s' % struct_type,
                                      buffered=True,
                                      data={"file": (io, "test.xls")},
                                      content_type="multipart/form-data")
             assert response.content_type == "application/vnd.ms-excel"
-            book2 = pe.load_book_from_memory('xls', response.data)
+            book2 = pe.get_book(file_type='xls', file_content=response.data)
             assert book2.to_dict() == self.content

@@ -29,10 +29,7 @@ class TestExcelResponse:
             file_name = 'test.%s' % upload_file_type
             for download_file_type in FILE_TYPE_MIME_TABLE.keys():
                 print("Uploading %s Downloading %s" % (upload_file_type, download_file_type))
-                io = pe.get_io(upload_file_type)
-                sheet = pe.Sheet(self.data)
-                sheet.save_to_memory(upload_file_type, io)
-                io.seek(0)
+                io = pe.save_as(dest_file_type=upload_file_type, array=self.data)
                 if not PY2:
                     if not isinstance(io, BytesIO):
                         io = BytesIO(io.getvalue().encode('utf-8'))
@@ -41,7 +38,8 @@ class TestExcelResponse:
                                          data={"file": (io, file_name)},
                                          content_type="multipart/form-data")
                 assert response.content_type == FILE_TYPE_MIME_TABLE[download_file_type]
-                sheet = pe.load_from_memory(download_file_type, response.data)
+                sheet = pe.get_sheet(file_type=download_file_type,
+                                     file_content=response.data)
                 sheet.format(int)
                 array = sheet.to_array()
                 assert array == self.data
