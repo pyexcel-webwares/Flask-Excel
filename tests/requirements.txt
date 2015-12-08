@@ -4,7 +4,7 @@ nose
 rednose
 nose-cov
 python-coveralls
-coverage
+coverage==3.7.1
 pyexcel>=0.1.7
 pyexcel-io>=0.0.8
 pyexcel-ods3>=0.0.8
