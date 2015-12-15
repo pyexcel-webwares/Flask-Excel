@@ -8,24 +8,24 @@ except ImportError:
 with open("README.rst", 'r') as readme:
     README_txt = readme.read()
 
-dependencies = [
-    'pyexcel>=0.1.5',
-    'pyexcel-webio>=0.0.3',
-    'Flask>=0.10.1'
-]
+with open("requirements.txt", 'r') as requirements_txt:
+    lines = requirements_txt.readlines()
+    lines = map(lambda x: x.rstrip(), lines)
+    dependencies = lines
+
+with open("VERSION", "r") as version:
+    version_txt = version.read().rstrip()
+
 extras = {
     'xls': ['pyexcel-xls>=0.0.7'],
     'xlsx': ['pyexcel-xlsx>=0.0.7'],
-    'ods3': [
-        'pyexcel-ods3>=0.0.8',
-        'https://github.com/T0ha/ezodf/archive/2c69103e6c0715adb0e36562cb2e6325fd776112.zip',
-    ],
+    'ods3': ['pyexcel-ods3>=0.0.10']
 }
 
 setup(
     name='Flask-Excel',
     author="C. W.",
-    version='0.0.3',
+    version=version_txt,
     author_email="wangc_2011@hotmail.com",
     url="https://github.com/chfw/Flask-Excel",
     description='A flask extension that provides one application programming interface to read and write data in different excel file formats',
