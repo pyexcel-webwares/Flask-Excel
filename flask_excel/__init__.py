@@ -18,20 +18,37 @@ class ExcelRequest(webio.ExcelInputInMultiDict, Request):
         filename = filehandle.filename
         extension = filename.split(".")[1]
         return extension, filehandle
-    
 
 Flask.request_class = ExcelRequest
 webio.ExcelResponse = Response
 
-from pyexcel_webio import (
-    make_response,
-    make_response_from_array,
-    make_response_from_dict,
-    make_response_from_records,
-    make_response_from_book_dict,
-    make_response_from_a_table,
-    make_response_from_query_sets,
-    make_response_from_tables
-)
+def add_file_name(response, file_name, file_type):
+    if file_name:
+        response.headers["Content-Disposition"] = "attachment; filename=%s.%s" % (file_name, file_type)
+    return response
 
-__VERSION__ = '0.0.3'
+def make_response(pyexcel_instance, file_type, status=200, file_name=None, **keywords):
+    return add_file_name(webio.make_response(pyexcel_instance, file_type, status=status, **keywords), file_name, file_type)
+
+def make_response_from_array(array, file_type, status=200, file_name=None, **keywords):
+    return add_file_name(webio.make_response_from_array(array, file_type, status=status, **keywords), file_name, file_type)
+
+def make_response_from_dict(adict, file_type, status=200, file_name=None, **keywords):
+    return add_file_name(webio.make_response_from_dict(adict, file_type, status=status, **keywords), file_name, file_type)
+
+def make_response_from_records(records, file_type, status=200, file_name=None, **keywords):
+    return add_file_name(webio.make_response_from_records(records, file_type, status=status, **keywords), file_name, file_type)
+
+def make_response_from_book_dict(adict, file_type, status=200, file_name=None, **keywords):
+    return add_file_name(webio.make_response_from_book_dict(adict, file_type, status=status, **keywords), file_name, file_type)
+
+def make_response_from_a_table(session, table, file_type, status=200, file_name=None, **keywords):
+    return add_file_name(webio.make_response_from_a_table(session, table, file_type, status=status, **keywords), file_name, file_type)
+
+def make_response_from_query_sets(query_sets, column_names, file_type, status=200, file_name=None, **keywords):
+    return add_file_name(webio.make_response_from_query_sets(query_sets, column_names, file_type, status=status, **keywords), file_name, file_type)
+
+def make_response_from_tables(session, tables, file_type, status=200, file_name=None, **keywords):
+    return add_file_name(webio.make_response_from_tables(session, tables, file_type, status=status, **keywords), file_name, file_type)
+
+__VERSION__ = '0.0.4'

@@ -101,6 +101,10 @@ A minimal application may look like this::
     def download_file():
         return excel.make_response_from_array([[1,2], [3, 4]], "csv")
 
+    @app.route("/export", methods=['GET'])
+    def export_records():
+        return excel.make_response_from_array([[1,2], [3, 4]], "csv", file_name="export_data")
+
     # insert database related code here
     
     if __name__ == "__main__":
@@ -351,33 +355,37 @@ Response methods
                         * 'ods'
                           
       :param status: unless a different status is to be returned.
-            
-   .. method:: make_response_from_array(array, file_type, status=200)
+      :param file_name: provide a custom file name for the response, excluding the file extension
+
+   .. method:: make_response_from_array(array, file_type, status=200, file_name=None)
 
       :param array: a list of lists
       :param file_type: same as :meth:`~flask_excel.make_response`
       :param status: same as :meth:`~flask_excel.make_response`
-            
-   .. method:: make_response_from_dict(dict, file_type, status=200)
+      :param file_name: same as :meth:`~flask_excel.make_response`
+
+   .. method:: make_response_from_dict(dict, file_type, status=200, file_name=None)
 
       :param dict: a dictinary of lists
       :param file_type: same as :meth:`~flask_excel.make_response`
       :param status: same as :meth:`~flask_excel.make_response`
-            
-   .. method:: make_response_from_records(records, file_type, status=200)
+      :param file_name: same as :meth:`~flask_excel.make_response`
+
+   .. method:: make_response_from_records(records, file_type, status=200, file_name=None)
 
       :param records: a list of dictionaries
       :param file_type: same as :meth:`~flask_excel.make_response`
       :param status: same as :meth:`~flask_excel.make_response`
-            
-                
-   .. method:: make_response_from_book_dict(book_dict, file_type, status=200)
+      :param file_name: same as :meth:`~flask_excel.make_response`
+
+   .. method:: make_response_from_book_dict(book_dict, file_type, status=200, file_name=None)
 
       :param book_dict: a dictionary of two dimensional arrays
       :param file_type: same as :meth:`~flask_excel.make_response`
       :param status: same as :meth:`~flask_excel.make_response`
+      :param file_name: same as :meth:`~flask_excel.make_response`
 
-   .. method:: make_response_from_a_table(session, table, file_type status=200)
+   .. method:: make_response_from_a_table(session, table, file_type status=200, file_name=None)
 
       Produce a single sheet Excel book of *file_type*
 
@@ -385,8 +393,9 @@ Response methods
       :param table: a SQLAlchemy table
       :param file_type: same as :meth:`~flask_excel.make_response`
       :param status: same as :meth:`~flask_excel.make_response`
+      :param file_name: same as :meth:`~flask_excel.make_response`
 
-   .. method:: make_response_from_query_sets(query_sets, column_names, file_type status=200)
+   .. method:: make_response_from_query_sets(query_sets, column_names, file_type status=200, file_name=None)
 
       Produce a single sheet Excel book of *file_type* from your custom database queries
 
@@ -394,8 +403,9 @@ Response methods
       :param column_names: a nominated column names. It could not be None, otherwise no data is returned.
       :param file_type: same as :meth:`~flask_excel.make_response`
       :param status: same as :meth:`~flask_excel.make_response`
+      :param file_name: same as :meth:`~flask_excel.make_response`
 
-   .. method:: make_response_from_tables(session, tables, file_type status=200)
+   .. method:: make_response_from_tables(session, tables, file_type status=200, file_name=None)
 
       Produce a multiple sheet Excel book of *file_type*. It becomes the same
       as :meth:`~flask_excel.make_response_from_a_table` if you pass *tables*
@@ -405,8 +415,9 @@ Response methods
       :param tables: SQLAlchemy tables
       :param file_type: same as :meth:`~flask_excel.make_response`
       :param status: same as :meth:`~flask_excel.make_response`
+      :param file_name: same as :meth:`~flask_excel.make_response`
 
-                
+
 Indices and tables
 --------------------
 
