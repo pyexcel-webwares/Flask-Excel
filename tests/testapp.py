@@ -4,6 +4,7 @@ from flask.ext import excel
 import pyexcel.ext.xls
 import pyexcel.ext.ods3
 import pyexcel.ext.xlsx
+import pyexcel as pe
 from flask.ext.sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -74,6 +75,10 @@ def respond_array(struct_type):
 def switch(file_type):
     sheet = request.get_sheet(field_name='file')
     return excel.make_response(sheet, file_type)
+
+@app.route("/file_name/<file_type>/<file_name>", methods=['POST'])
+def swtich_file_name(file_type, file_name):
+    return excel.make_response(pe.Sheet(["a", "b", "c"]), file_type, file_name=file_name)
 
 @app.route("/exchange/<struct_type>", methods=['POST'])
 def upload_array(struct_type):

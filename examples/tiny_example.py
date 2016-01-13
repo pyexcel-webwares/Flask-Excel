@@ -25,6 +25,10 @@ def upload_file():
 def download_file():
     return excel.make_response_from_array([[1,2], [3, 4]], "csv")
 
+@app.route("/export", methods=['GET'])
+def export_records():
+    return excel.make_response_from_array([[1,2], [3, 4]], "csv", file_name="export_data")
+
 # insert database related code here
 
 if __name__ == "__main__":

@@ -44,3 +44,10 @@ class TestExcelResponse:
                 array = sheet.to_array()
                 assert array == self.data
 
+    def test_override_file_name(self):
+        for file_type in FILE_TYPE_MIME_TABLE.keys():
+            file_name = 'override_file_name'
+            response = self.app.post('/file_name/%s/%s' % (file_type, file_name))
+            assert response.content_type == FILE_TYPE_MIME_TABLE[file_type]
+            assert response.headers.get("Content-Disposition", None) == ("attachment; filename=%s.%s" % (file_name, file_type))
+
