@@ -78,7 +78,7 @@ def switch(file_type):
 
 @app.route("/file_name/<file_type>/<file_name>", methods=['POST'])
 def swtich_file_name(file_type, file_name):
-    return excel.make_response(pe.Sheet(request.form.get("data", None)), file_type, file_name=file_name)
+    return excel.make_response(pe.Sheet(["a", "b", "c"]), file_type, file_name=file_name)
 
 @app.route("/exchange/<struct_type>", methods=['POST'])
 def upload_array(struct_type):
