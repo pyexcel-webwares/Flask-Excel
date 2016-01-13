@@ -2,7 +2,7 @@
 Flask-Excel - Let you focus on data, instead of file formats
 ============================================================
 
-.. image:: https://api.travis-ci.org/chfw/Flask-Excel.svg?branch=master
+.. image:: https://api.travis-ci.org/pyexcel/Flask-Excel.svg?branch=master
    :target: http://travis-ci.org/chfw/Flask-Excel
 
 .. image:: https://coveralls.io/repos/chfw/Flask-Excel/badge.svg
@@ -10,9 +10,6 @@ Flask-Excel - Let you focus on data, instead of file formats
 
 .. image:: https://readthedocs.org/projects/flask-excel/badge/?version=latest
    :target: http://flask-excel.readthedocs.org/en/latest/
-
-.. image:: http://img.shields.io/gittip/chfw.svg
-   :target: https://gratipay.com/chfw/
 
 **Flask-Excel** is based on `pyexcel <https://github.com/chfw/pyexcel>`_ and makes
 it easy to consume/produce information stored in excel files over HTTP protocol as
