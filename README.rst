@@ -101,13 +101,10 @@ Here are some example codes::
     	</form>
         '''
 
-    @app.route("/download", methods=['GET'])
-    def download_file():
-        return excel.make_response_from_array([[1,2], [3, 4]], "csv")
-
     @app.route("/export", methods=['GET'])
     def export_records():
-        return excel.make_response_from_array([[1,2], [3, 4]], "csv", file_name="export_data")
+        return excel.make_response_from_array([[1,2], [3, 4]], "csv",
+                                              file_name="export_data")
 
     if __name__ == "__main__":
         app.run()
