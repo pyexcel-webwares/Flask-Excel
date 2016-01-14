@@ -263,7 +263,8 @@ API Reference
 
 .. module:: flask_excel
 
-.. autoclass:: ExcelRequest
+ExcelRequest
+******************
 
    .. method:: get_sheet(field_name=None, sheet_name=None, **keywords)
 
@@ -338,7 +339,7 @@ API Reference
 
 
 Response methods
------------------
+**********************
 
    .. method:: make_response(pyexcel_instance, file_type, status=200, file_name=None)
 
