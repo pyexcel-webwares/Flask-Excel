@@ -329,7 +329,7 @@ API Reference
 
    .. method:: save_book_to_database(field_name=None, session=None, tables=None, initializers=None, mapdicts=None, **keywords)
 
-      :param field_name: save as  :meth:`~flask_excel.ExcelRequest.get_sheet`
+      :param field_name: same as  :meth:`~flask_excel.ExcelRequest.get_sheet`
       :param session: a SQLAlchemy session
       :param tables: a list of database tables
       :param initializers: a list of model initialization functions.
@@ -340,7 +340,7 @@ API Reference
 Response methods
 -----------------
 
-   .. method:: make_response(pyexcel_instance, file_type, status=200)
+   .. method:: make_response(pyexcel_instance, file_type, status=200, file_name=None)
 
       :param pyexcel_instance: :class:`pyexcel.Sheet` or :class:`pyexcel.Book`
       :param file_type: one of the following strings:
