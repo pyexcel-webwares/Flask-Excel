@@ -5,13 +5,13 @@ Flask-Excel - Let you focus on data, instead of file formats
 .. image:: https://api.travis-ci.org/pyexcel/Flask-Excel.svg?branch=master
    :target: http://travis-ci.org/pyexcel/Flask-Excel
 
-.. image:: https://coveralls.io/repos/chfw/Flask-Excel/badge.svg
-   :target: https://coveralls.io/r/chfw/Flask-Excel 
+.. image:: https://codecov.io/github/pyexcel/Flask-Excel/coverage.png
+    :target: https://codecov.io/github/pyexcel/Flask-Excel
 
 .. image:: https://readthedocs.org/projects/flask-excel/badge/?version=latest
    :target: http://flask-excel.readthedocs.org/en/latest/
 
-**Flask-Excel** is based on `pyexcel <https://github.com/chfw/pyexcel>`_ and makes
+**Flask-Excel** is based on `pyexcel <https://github.com/pyexcel/pyexcel>`_ and makes
 it easy to consume/produce information stored in excel files over HTTP protocol as
 well as on file system. This library can turn the excel data into a list of lists,
 a list of records(dictionaries), dictionaries of lists. And vice versa. Hence it
@@ -47,11 +47,11 @@ Plugins          Supported file formats
                  latex, grid, pipe, orgtbl, plain simple
 ================ ==========================================
 
-.. _pyexcel-xls: https://github.com/chfw/pyexcel-xls
-.. _pyexcel-xlsx: https://github.com/chfw/pyexcel-xlsx
-.. _pyexcel-ods: https://github.com/chfw/pyexcel-ods
-.. _pyexcel-ods3: https://github.com/chfw/pyexcel-ods3
-.. _pyexcel-text: https://github.com/chfw/pyexcel-text
+.. _pyexcel-xls: https://github.com/pyexcel/pyexcel-xls
+.. _pyexcel-xlsx: https://github.com/pyexcel/pyexcel-xlsx
+.. _pyexcel-ods: https://github.com/pyexcel/pyexcel-ods
+.. _pyexcel-ods3: https://github.com/pyexcel/pyexcel-ods3
+.. _pyexcel-text: https://github.com/pyexcel/pyexcel-text
 
 
 Known constraints
@@ -68,7 +68,7 @@ You can install it via pip::
 
 or clone it and install it::
 
-    $ git clone http://github.com/chfw/Flask-Excel.git
+    $ git clone http://github.com/pyexcel/Flask-Excel.git
     $ cd Flask-Excel
     $ python setup.py install
 

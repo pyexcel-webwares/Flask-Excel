@@ -7,12 +7,12 @@ Welcome to Flask-Excel's documentation!
 =======================================
 
 :Author: C.W.
-:Issues: http://github.com/chfw/Flask-Excel/issues
+:Issues: http://github.com/pyexcel/Flask-Excel/issues
 :License: New BSD License
 :Version: |version| 
 :Generated: |today|
 
-**Flask-Excel** is based on `pyexcel <https://github.com/chfw/pyexcel>`_ and makes it easy to consume/produce information stored in excel files over HTTP protocol as well as on file system. This library can turn the excel data into a list of lists, a list of records(dictionaries), dictionaries of lists. And vice versa. Hence it lets you focus on data in Flask based web development, instead of file formats.
+**Flask-Excel** is based on `pyexcel <https://github.com/pyexcel/pyexcel>`_ and makes it easy to consume/produce information stored in excel files over HTTP protocol as well as on file system. This library can turn the excel data into a list of lists, a list of records(dictionaries), dictionaries of lists. And vice versa. Hence it lets you focus on data in Flask based web development, instead of file formats.
 
 The highlighted features are:
 
@@ -38,11 +38,11 @@ The highlighted features are:
                     latex, grid, pipe, orgtbl, plain simple
    ================ =========================================
    
-.. _pyexcel-xls: https://github.com/chfw/pyexcel-xls
-.. _pyexcel-xlsx: https://github.com/chfw/pyexcel-xlsx
-.. _pyexcel-ods: https://github.com/chfw/pyexcel-ods
-.. _pyexcel-ods3: https://github.com/chfw/pyexcel-ods3
-.. _pyexcel-text: https://github.com/chfw/pyexcel-text
+.. _pyexcel-xls: https://github.com/pyexcel/pyexcel-xls
+.. _pyexcel-xlsx: https://github.com/pyexcel/pyexcel-xlsx
+.. _pyexcel-ods: https://github.com/pyexcel/pyexcel-ods
+.. _pyexcel-ods3: https://github.com/pyexcel/pyexcel-ods3
+.. _pyexcel-text: https://github.com/pyexcel/pyexcel-text
 
 This library makes infomation processing involving various excel files as easy as processing array and dictionary. The information processing job includes when processing file upload/download, data import into and export from SQL databases, information analysis and persistence. It uses **pyexcel** and its plugins: 1) to provide one uniform programming interface to handle csv, tsv, xls, xlsx, xlsm and ods formats. 2) to provide one-stop utility to import the data in uploaded file into a database and to export tables in a database as excel files for file download 3) to provide the same interface for information persistence at server side: saving a uploaded excel file to and loading a saved excel file from file system.
 
@@ -56,7 +56,7 @@ You can install it via pip::
 
 or clone it and install it::
 
-    $ git clone http://github.com/chfw/Flask-Excel.git
+    $ git clone http://github.com/pyexcel/Flask-Excel.git
     $ cd Flask-Excel
     $ python setup.py install
 
@@ -111,7 +111,7 @@ A minimal application may look like this::
         app.run()
 
 
-The tiny application exposes two urls: one for file upload and the other for file donload. The former url presents a simple file upload html and responds back in json with the content of the uploaded file. Here is an `example file <https://github.com/chfw/Flask-Excel/blob/master/examples/example_for_upload.csv>` for testing but you can upload any other excel file. The file upload handler uses `request.get_array` to parse the uploaded file and gets an array back. The parameter **file** is coded in the html form::
+The tiny application exposes two urls: one for file upload and the other for file donload. The former url presents a simple file upload html and responds back in json with the content of the uploaded file. Here is an `example file <https://github.com/pyexcel/Flask-Excel/blob/master/examples/example_for_upload.csv>` for testing but you can upload any other excel file. The file upload handler uses `request.get_array` to parse the uploaded file and gets an array back. The parameter **file** is coded in the html form::
 
     <input ... name=file>
 
@@ -136,7 +136,7 @@ Continue with the previous example, the data import and export will be explained
 
     # insert database related code here
 
-Alernatively, you can find the complete example on `github <https://github.com/chfw/Flask-Excel/blob/master/examples/database_example.py>`_
+Alernatively, you can find the complete example on `github <https://github.com/pyexcel/Flask-Excel/blob/master/examples/database_example.py>`_
 
 Now let's add the following imports first::
 
@@ -224,7 +224,7 @@ Write up the view function for data export::
         return excel.make_response_from_tables(db.session, [Category, Post], "xls")
 
 
-Then run the example again. Visit http://localhost:5000/import and upload `sample-data.xls <https://github.com/chfw/Flask-Excel/blob/master/sample-data.xls>`_ . Then visit http://localhost:5000/export to download the data back.
+Then run the example again. Visit http://localhost:5000/import and upload `sample-data.xls <https://github.com/pyexcel/Flask-Excel/blob/master/sample-data.xls>`_ . Then visit http://localhost:5000/export to download the data back.
 
 Export filtered query sets
 -----------------------------

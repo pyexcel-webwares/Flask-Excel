@@ -3,8 +3,8 @@ Flask-SQLAlchemy
 nose
 rednose
 nose-cov
-python-coveralls
-coverage==3.7.1
+codecov
+coverage
 pyexcel>=0.1.7
 pyexcel-io>=0.0.8
 pyexcel-ods3>=0.0.8
