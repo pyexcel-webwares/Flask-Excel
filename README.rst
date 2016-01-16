@@ -3,7 +3,7 @@ Flask-Excel - Let you focus on data, instead of file formats
 ============================================================
 
 .. image:: https://api.travis-ci.org/pyexcel/Flask-Excel.svg?branch=master
-   :target: http://travis-ci.org/chfw/Flask-Excel
+   :target: http://travis-ci.org/pyexcel/Flask-Excel
 
 .. image:: https://coveralls.io/repos/chfw/Flask-Excel/badge.svg
    :target: https://coveralls.io/r/chfw/Flask-Excel 
