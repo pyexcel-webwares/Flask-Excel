@@ -8,6 +8,5 @@ coverage
 pyexcel>=0.1.7
 pyexcel-io>=0.0.8
 pyexcel-ods3>=0.0.8
-https://github.com/pyexcel/pyexcel-webio/archive/master.zip
 pyexcel-xls>=0.0.7
 pyexcel-xlsx>=0.0.7

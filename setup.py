@@ -8,10 +8,11 @@ except ImportError:
 with open("README.rst", 'r') as readme:
     README_txt = readme.read()
 
-with open("requirements.txt", 'r') as requirements_txt:
-    lines = requirements_txt.readlines()
-    lines = map(lambda x: x.rstrip(), lines)
-    dependencies = lines
+dependencies = [
+    "pyexcel>=0.1.5",
+    "pyexcel-webio>=0.0.5",
+    "Flask>=0.10.1"
+]
 
 with open("VERSION", "r") as version:
     version_txt = version.read().rstrip()
