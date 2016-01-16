@@ -30,19 +30,19 @@ The highlighted features are:
    ================ =========================================
    Plugins          Supported file formats                   
    ================ =========================================
-   `xls`_           xls, xlsx(r), xlsm(r)
-   `xlsx`_          xlsx
-   `ods3`_          ods (python 2.6, 2.7, 3.3, 3.4)
-   `ods`_           ods (python 2.6, 2.7)
-   `text`_          write only)json, rst, mediawiki,
+   `pyexcel-xls`_   xls, xlsx(r), xlsm(r)
+   `pyexcel-xlsx`_  xlsx
+   `pyexcel-ods3`_  ods (python 2.6, 2.7, 3.3, 3.4)
+   `pyexcel-ods`_   ods (python 2.6, 2.7)
+   `pyexcel-text`_  (write only)json, rst, mediawiki,
                     latex, grid, pipe, orgtbl, plain simple
    ================ =========================================
    
-.. _xls: https://github.com/chfw/pyexcel-xls
-.. _xlsx: https://github.com/chfw/pyexcel-xlsx
-.. _ods: https://github.com/chfw/pyexcel-ods
-.. _ods3: https://github.com/chfw/pyexcel-ods3
-.. _text: https://github.com/chfw/pyexcel-text
+.. _pyexcel-xls: https://github.com/chfw/pyexcel-xls
+.. _pyexcel-xlsx: https://github.com/chfw/pyexcel-xlsx
+.. _pyexcel-ods: https://github.com/chfw/pyexcel-ods
+.. _pyexcel-ods3: https://github.com/chfw/pyexcel-ods3
+.. _pyexcel-text: https://github.com/chfw/pyexcel-text
 
 This library makes infomation processing involving various excel files as easy as processing array and dictionary. The information processing job includes when processing file upload/download, data import into and export from SQL databases, information analysis and persistence. It uses **pyexcel** and its plugins: 1) to provide one uniform programming interface to handle csv, tsv, xls, xlsx, xlsm and ods formats. 2) to provide one-stop utility to import the data in uploaded file into a database and to export tables in a database as excel files for file download 3) to provide the same interface for information persistence at server side: saving a uploaded excel file to and loading a saved excel file from file system.
 
@@ -201,7 +201,7 @@ Write up the view functions for data import::
             request.save_book_to_database(field_name='file', session=db.session,
                                           tables=[Category, Post],
                                           initializers=(category_init_func,
-					                post_init_func])
+                                          post_init_func])
             return "Saved"
         return '''
         <!doctype html>
@@ -211,6 +211,11 @@ Write up the view functions for data import::
         <input type=file name=file><input type=submit value=Upload>
         </form>
         '''
+
+In the code, `category_init_func` and `post_init_func` are custom initialization functions for
+Category and Post respectively. In the situation where you want to skip certain rows, None should
+should be returned and flask_excel will ignore the row.
+
 
 Write up the view function for data export::
 
@@ -261,7 +266,7 @@ API Reference
 
 **Flask-Excel** attaches **pyexcel** functions to **Request** class.
 
-.. module:: flask_excel.request
+.. module:: flask_excel.ExcelRequest
 
 ExcelRequest
 ******************
@@ -322,7 +327,7 @@ ExcelRequest
 .. method:: save_to_database(field_name=None, session=None, table=None, initializer=None, mapdict=None **keywords)
 
    :param field_name: same as :meth:`~flask_excel.ExcelRequest.get_sheet`
-   :param session: a SQLAlchemy session						
+   :param session: a SQLAlchemy session                     
    :param table: a database table 
    :param initializer: a custom table initialization function if you have one
    :param mapdict: the explicit table column names if your excel data do not have the exact column names
