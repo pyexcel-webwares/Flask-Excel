@@ -13,6 +13,7 @@ python:
 {%block exclusion_matrix%}
 {%endblock%}
 install:
+  - rm applymoban.py
 {% block custom_install %}
 {% endblock%}
   - pip install -r requirements.txt
