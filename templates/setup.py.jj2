@@ -1,0 +1,67 @@
+try:
+    from setuptools import setup, find_packages
+except ImportError:
+    from ez_setup import use_setuptools
+    use_setuptools()
+    from setuptools import setup, find_packages
+import sys
+
+with open("README.rst", 'r') as readme:
+    README_txt = readme.read()
+
+dependencies = [
+{% for dependency in dependencies: %}
+    '{{dependency}}',
+{% endfor %}
+]
+
+{% if extra_dependencies: %}
+extras = {
+  {% for dependency in extra_dependencies: %}
+     {% for key, value in dependency.items(): %}
+    '{{key}}': {{value}},
+     {% endfor %}
+  {% endfor %}
+}
+{% else: %}
+extra_dependencies = {}
+{% endif %}
+
+{%block extras %}
+if sys.version_info[0] == 2 and sys.version_info[1] < 7:
+    dependencies.append('ordereddict')
+{%endblock %}
+
+setup(
+    name='{{name}}',
+    author='{{author}}',
+    version='{{version}}',
+    author_email='{{contact}}',
+    url='https://github.com/{{organisation}}/{{name}}',
+    description='{{description}}',
+    install_requires=dependencies,
+    extras_require=extras,
+    packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
+    include_package_data=True,
+    long_description=README_txt,
+    zip_safe=False,
+    tests_require=['nose'],
+    keywords=[
+        'excel',
+        'python',
+        'pyexcel',
+    {%block additional_keywords%}
+    {%endblock%}
+    ],
+    license='{{license}}',
+    classifiers=[
+        'Topic :: Office/Business',
+        'Topic :: Utilities',
+        'Topic :: Software Development :: Libraries',
+        'Programming Language :: Python',
+        'License :: OSI Approved :: BSD License',
+        'Intended Audience :: Developers',
+        {%block additional_classifers%}
+        {%endblock %}
+    ]
+)

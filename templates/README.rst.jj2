@@ -1,0 +1,228 @@
+================================================================================
+{{name}} - Let you focus on data, instead of {{file_type}} format
+================================================================================
+
+.. image:: https://api.travis-ci.org/pyexcel/{{name}}.png
+    :target: http://travis-ci.org/pyexcel/{{name}}
+
+.. image:: https://codecov.io/github/pyexcel/{{name}}/coverage.png
+    :target: https://codecov.io/github/pyexcel/{{name}}
+
+{%block description %}
+{%endblock %}
+
+Known constraints
+================================================================================
+
+Fonts, colors and charts are not supported. 
+
+Installation
+================================================================================
+
+You can install it via pip:
+
+.. code-block:: bash
+
+    $ pip install {{name}}
+
+or clone it and install it:
+
+.. code-block:: bash
+
+    $ git clone http://github.com/pyexcel/{{name}}.git
+    $ cd {{name}}
+    $ python setup.py install
+
+Usage
+================================================================================
+
+New feature
+--------------------------------------------------------------------------------
+
+
+1. Passing "streaming=True" to get_data, you will get the two dimensional array as a generator
+2. Passing "data=your_generator" to save_data is acceptable too.
+
+
+As a standalone library
+--------------------------------------------------------------------------------
+
+Write to an {{file_type}} file
+********************************************************************************
+
+.. testcode::
+   :hide:
+
+    >>> import sys
+    >>> if sys.version_info[0] < 3:
+    ...     from StringIO import StringIO
+    ... else:
+    ...     from io import BytesIO as StringIO
+    >>> from pyexcel_io import OrderedDict
+
+
+Here's the sample code to write a dictionary to an {{file_type}} file:
+
+.. code-block:: python
+
+    >>> from pyexcel_{{nick_name}} import save_data
+    >>> data = OrderedDict() # from collections import OrderedDict
+    >>> data.update({"Sheet 1": [[1, 2, 3], [4, 5, 6]]})
+    >>> data.update({"Sheet 2": [["row 1", "row 2", "row 3"]]})
+    >>> save_data("your_file.{{file_type}}", data)
+
+Read from an {{file_type}} file
+********************************************************************************
+
+Here's the sample code:
+
+.. code-block:: python
+
+    >>> from pyexcel_{{nick_name}} import get_data
+    >>> data = get_data("your_file.{{file_type}}")
+    >>> import json
+    >>> print(json.dumps(data))
+    {%block result1 %}
+    {"Sheet 1": [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]], "Sheet 2": [["row 1", "row 2", "row 3"]]}
+	{%endblock%}
+
+Write an {{file_type}} to memory
+********************************************************************************
+
+Here's the sample code to write a dictionary to an {{file_type}} file:
+
+.. code-block:: python
+
+    >>> from pyexcel_{{nick_name}} import save_data
+    >>> data = OrderedDict()
+    >>> data.update({"Sheet 1": [[1, 2, 3], [4, 5, 6]]})
+    >>> data.update({"Sheet 2": [[7, 8, 9], [10, 11, 12]]})
+    >>> io = StringIO()
+    >>> save_data(io, data)
+    >>> # do something with the io
+    >>> # In reality, you might give it to your http response
+    >>> # object for downloading
+
+
+{%block middle_block %}
+{%endblock%}
+
+Read from an {{file_type}} from memory
+********************************************************************************
+
+Continue from previous example:
+
+.. code-block:: python
+
+    >>> # This is just an illustration
+    >>> # In reality, you might deal with {{file_type}} file upload
+    >>> # where you will read from requests.FILES['YOUR_{{file_type|upper}}_FILE']
+    >>> data = get_data(io)
+    >>> print(json.dumps(data))
+	{%block result2 %}
+    {"Sheet 1": [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]], "Sheet 2": [[7.0, 8.0, 9.0], [10.0, 11.0, 12.0]]}
+	{%endblock%}
+
+
+As a pyexcel plugin
+--------------------------------------------------------------------------------
+
+Import it in your file to enable this plugin:
+
+.. code-block:: python
+
+    from pyexcel.ext import {{nick_name}}
+
+Please note only pyexcel version 0.0.4+ support this.
+
+Reading from an {{file_type}} file
+********************************************************************************
+
+Here is the sample code:
+
+.. code-block:: python
+
+    >>> import pyexcel as pe
+    >>> from pyexcel.ext import {{nick_name}}
+    >>> sheet = pe.get_book(file_name="your_file.{{file_type}}")
+    >>> sheet
+    Sheet Name: Sheet 1
+    +---+---+---+
+    | 1 | 2 | 3 |
+    +---+---+---+
+    | 4 | 5 | 6 |
+    +---+---+---+
+    Sheet Name: Sheet 2
+    +-------+-------+-------+
+    | row 1 | row 2 | row 3 |
+    +-------+-------+-------+
+
+Writing to an {{file_type}} file
+********************************************************************************
+
+Here is the sample code:
+
+.. code-block:: python
+
+    >>> sheet.save_as("another_file.{{file_type}}")
+
+Reading from a IO instance
+================================================================================
+
+You got to wrap the binary content with stream to get {{file_type}} working:
+
+.. code-block:: python
+
+    >>> # This is just an illustration
+    >>> # In reality, you might deal with {{file_type}} file upload
+    >>> # where you will read from requests.FILES['YOUR_{{file_type|upper}}_FILE']
+    >>> {{file_type}}file = "another_file.{{file_type}}"
+    >>> with open({{file_type}}file, "rb") as f:
+    ...     content = f.read()
+    ...     r = pe.get_book(file_type="{{file_type}}", file_content=content)
+    ...     print(r)
+    ...
+    Sheet Name: Sheet 1
+    +---+---+---+
+    | 1 | 2 | 3 |
+    +---+---+---+
+    | 4 | 5 | 6 |
+    +---+---+---+
+    Sheet Name: Sheet 2
+    +-------+-------+-------+
+    | row 1 | row 2 | row 3 |
+    +-------+-------+-------+
+
+
+Writing to a StringIO instance
+================================================================================
+
+You need to pass a StringIO instance to Writer:
+
+.. code-block:: python
+
+    >>> data = [
+    ...     [1, 2, 3],
+    ...     [4, 5, 6]
+    ... ]
+    >>> io = StringIO()
+    >>> sheet = pe.Sheet(data)
+    >>> sheet.save_to_memory("{{file_type}}", io)
+    >>> # then do something with io
+    >>> # In reality, you might give it to your http response
+    >>> # object for downloading
+
+License
+================================================================================
+
+{{license}} License
+
+{%block extras %}
+{%endblock %}
+
+.. testcode::
+   :hide:
+
+   >>> import os
+   >>> os.unlink("your_file.{{file_type}}")
+   >>> os.unlink("another_file.{{file_type}}")

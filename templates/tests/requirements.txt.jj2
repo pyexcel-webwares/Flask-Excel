@@ -1,0 +1,7 @@
+nose
+rednose
+nose-cov
+codecov
+coverage
+{%block extras %}
+{%endblock%}

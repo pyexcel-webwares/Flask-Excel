@@ -1,0 +1,24 @@
+sudo: false
+language: python
+notifications:
+  email: false
+env:
+{%block test_other_environments%}
+  global:
+{%endblock%}
+python:
+  - 2.7
+{%block test_other_python_versions%}
+{%endblock%}
+{%block exclusion_matrix%}
+{%endblock%}
+install:
+{% block custom_install %}
+  - if [[ $TRAVIS_PYTHON_VERSION == "2.6" ]]; then pip install ordereddict; fi
+{% endblock%}
+  - pip install -r requirements.txt
+  - pip install -r tests/requirements.txt
+script:
+  make test
+after_success:
+  codecov
