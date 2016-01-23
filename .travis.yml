@@ -1,15 +1,17 @@
+sudo: false
 language: python
 notifications:
   email: false
 env:
   global:
 python:
-  - 2.6
   - 2.7
+  - 2.6
   - 3.3
   - 3.4
   - 3.5
 install:
+  - rm applymoban.py
   - if [[ $TRAVIS_PYTHON_VERSION == "2.6" ]]; then pip install weakrefset; fi
   - pip install -r requirements.txt
   - pip install -r tests/requirements.txt

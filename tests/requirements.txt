@@ -1,12 +1,8 @@
-Flask
-Flask-SQLAlchemy
 nose
 rednose
 nose-cov
 codecov
 coverage
-pyexcel>=0.1.7
-pyexcel-io>=0.0.8
-pyexcel-ods3>=0.0.8
-pyexcel-xls>=0.0.7
-pyexcel-xlsx>=0.0.7
+pyexcel-ods3>=0.1.0
+pyexcel-xls>=0.1.0
+pyexcel-xlsx>=0.1.0

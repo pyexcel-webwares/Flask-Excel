@@ -1,6 +1,6 @@
-============================================================
+================================================================================
 Flask-Excel - Let you focus on data, instead of file formats
-============================================================
+================================================================================
 
 .. image:: https://api.travis-ci.org/pyexcel/Flask-Excel.svg?branch=master
    :target: http://travis-ci.org/pyexcel/Flask-Excel
@@ -37,12 +37,12 @@ Available Plugins
 =================
 
 ================ ==========================================
-Plugins          Supported file formats                    
+Plugins          Supported file formats
 ================ ==========================================
 `pyexcel-xls`_   xls, xlsx(r), xlsm(r)
 `pyexcel-xlsx`_  xlsx
-`pyexcel-ods`_   ods (python 2.6, 2.7)                     
-`pyexcel-ods3`_  ods (python 2.7, 3.3, 3.4)                
+`pyexcel-ods`_   ods (python 2.6, 2.7)
+`pyexcel-ods3`_  ods (python 2.7, 3.3, 3.4)
 `pyexcel-text`_  write only)json, rst, mediawiki,
                  latex, grid, pipe, orgtbl, plain simple
 ================ ==========================================
@@ -59,14 +59,20 @@ Known constraints
 
 Fonts, colors and charts are not supported. 
 
+
 Installation
 ============
-You can install it via pip::
+
+You can install it via pip:
+
+.. code-block:: bash
 
     $ pip install Flask-Excel
 
 
-or clone it and install it::
+or clone it and install it:
+
+.. code-block:: bash
 
     $ git clone http://github.com/pyexcel/Flask-Excel.git
     $ cd Flask-Excel
@@ -75,10 +81,13 @@ or clone it and install it::
 Installation of individual plugins , please refer to individual plugin page.
 
 
-Usage
-=========
 
-Here are some example codes::
+Usage
+================================================================================
+
+Here are some example codes:
+
+.. code-block:: python
 
     from flask import Flask, request, jsonify
     from flask.ext import excel
@@ -95,7 +104,7 @@ Here are some example codes::
         <h1>Excel file upload (csv, tsv, csvz, tsvz only)</h1>
         <form action="" method=post enctype=multipart/form-data>
         <p><input type=file name=file><input type=submit value=Upload>
-    	</form>
+       </form>
         '''
 
     @app.route("/export", methods=['GET'])
@@ -106,15 +115,8 @@ Here are some example codes::
     if __name__ == "__main__":
         app.run()
 
+
 License
 ==========
 
 New BSD License
-
-
-Dependencies
-=============
-
-* Flask
-* pyexcel
-* pyexcel-webio
