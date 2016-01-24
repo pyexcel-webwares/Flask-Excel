@@ -12,11 +12,11 @@ Welcome to Flask-Excel's documentation!
 :Version: |version|
 :Generated: |today|
 
-**django-excel** is based on `pyexcel <https://github.com/pyexcel/pyexcel>`_ and makes
+**Flask-Excel** is based on `pyexcel <https://github.com/pyexcel/pyexcel>`_ and makes
 it easy to consume/produce information stored in excel files over HTTP protocol as
 well as on file system. This library can turn the excel data into a list of lists,
 a list of records(dictionaries), dictionaries of lists. And vice versa. Hence it
-lets you focus on data in Django web development, instead of file formats.
+lets you focus on data in Flask web development, instead of file formats.
 
 The highlighted features are:
 
