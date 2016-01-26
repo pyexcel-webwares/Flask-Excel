@@ -23,7 +23,7 @@ extras = {
   {% endfor %}
 }
 {% else: %}
-extra_dependencies = {}
+extras = {}
 {% endif %}
 
 {%block extras %}
