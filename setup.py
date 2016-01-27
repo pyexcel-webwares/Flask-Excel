@@ -24,7 +24,7 @@ extras = {
 setup(
     name='Flask-Excel',
     author='C. W.',
-    version='0.0.4',
+    version='0.0.5',
     author_email='wangc_2011 (at) hotmail.com',
     url='https://github.com/pyexcel/Flask-Excel',
     description='A flask extension that provides one application programming interface to read and write data in different excel file formats',

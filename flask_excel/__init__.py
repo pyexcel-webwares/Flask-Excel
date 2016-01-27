@@ -9,7 +9,6 @@
     :license: New BSD License
 """
 from flask import Flask, Request, Response
-import pyexcel as pe
 import pyexcel_webio as webio
 
 

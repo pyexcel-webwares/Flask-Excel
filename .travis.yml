@@ -13,6 +13,7 @@ python:
 install:
   - rm applymoban.py
   - if [[ $TRAVIS_PYTHON_VERSION == "2.6" ]]; then pip install weakrefset; fi
+  - pip install https://github.com/pyexcel/pyexcel-webio/archive/master.zip
   - pip install -r requirements.txt
   - pip install -r tests/requirements.txt
 script:
