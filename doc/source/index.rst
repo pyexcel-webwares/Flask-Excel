@@ -16,7 +16,16 @@ Welcome to Flask-Excel's documentation!
 it easy to consume/produce information stored in excel files over HTTP protocol as
 well as on file system. This library can turn the excel data into a list of lists,
 a list of records(dictionaries), dictionaries of lists. And vice versa. Hence it
-lets you focus on data in Flask web development, instead of file formats.
+lets you focus on data in Flask based web development, instead of file formats.
+
+The idea originated from the problem of the illiteracy of excel file formats of
+non-technical office workers: such as office assistant, human resource administrator.
+There is nothing with the un-deniable fact that some people do not know the
+difference among various excel formats. It becomes usability problem to those
+people when a web service cannot parse the excel file that they saved using
+Microsoft Excel. Instead of training those people about file formats, this library
+helps web developers to handle most of the excel file formats by unifying the
+programming interface to most of the excel readers and writers.
 
 The highlighted features are:
 
@@ -56,16 +65,19 @@ and export from SQL databases, information analysis and persistence. It uses
 #. to provide one uniform programming interface to handle csv, tsv, xls, xlsx, xlsm and ods formats.
 #. to provide one-stop utility to import the data in uploaded file into a database and to export tables in a database as excel files for file download.
 #. to provide the same interface for information persistence at server side: saving a uploaded excel file to and loading a saved excel file from file system.
-
 Installation
 -------------------
 
-You can install it via pip::
+You can install it via pip:
+
+.. code-block:: bash
 
     $ pip install Flask-Excel
 
 
-or clone it and install it::
+or clone it and install it:
+
+.. code-block:: bash
 
     $ git clone http://github.com/pyexcel/Flask-Excel.git
     $ cd Flask-Excel
@@ -279,6 +291,7 @@ database table              :meth:`~flask_excel.ExcelRequest.save_to_database`  
 a list of database tables   :meth:`~flask_excel.ExcelRequest.save_book_to_database` :meth:`~flask_excel.make_response_from_tables` 
 a database query sets                                                               :meth:`~flask_excel.make_response_from_query_sets`
 =========================== ======================================================= ==================================================
+
 See more examples of the data structures in :ref:`pyexcel documentation<pyexcel:a-list-of-data-structures>`
 
 API Reference
