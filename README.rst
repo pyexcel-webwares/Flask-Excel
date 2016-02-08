@@ -69,9 +69,9 @@ Known constraints
 
 Fonts, colors and charts are not supported. 
 
-Installation
-============
 
+Installation
+================================================================================
 You can install it via pip:
 
 .. code-block:: bash
