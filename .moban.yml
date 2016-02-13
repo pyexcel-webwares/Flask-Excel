@@ -1,9 +1,9 @@
 configuration:
-  - configuration_dir: "commons/config"
-  - template_dir:
+  configuration_dir: "commons/config"
+  template_dir:
     - "commons/templates"
     - ".moban.d"
-  - configuration: flask_excel.yaml
+  configuration: flask_excel.yaml
 targets:
   - README.rst: README.rst
   - setup.py: setup.py
