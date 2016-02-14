@@ -65,6 +65,7 @@ and export from SQL databases, information analysis and persistence. It uses
 #. to provide one uniform programming interface to handle csv, tsv, xls, xlsx, xlsm and ods formats.
 #. to provide one-stop utility to import the data in uploaded file into a database and to export tables in a database as excel files for file download.
 #. to provide the same interface for information persistence at server side: saving a uploaded excel file to and loading a saved excel file from file system.
+
 Installation
 -------------------
 
