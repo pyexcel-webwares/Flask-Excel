@@ -6,7 +6,7 @@
 Welcome to Flask-Excel's documentation!
 ================================================================================
 
-:Author: C. W.
+:Author: C.W.
 :Issues: http://github.com/pyexcel/Flask-Excel/issues
 :License: New BSD License
 :Version: |version|

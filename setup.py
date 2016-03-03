@@ -23,7 +23,7 @@ extras = {
 
 setup(
     name='Flask-Excel',
-    author='C. W.',
+    author='C.W.',
     version='0.0.5',
     author_email='wangc_2011 (at) hotmail.com',
     url='https://github.com/pyexcel/Flask-Excel',
