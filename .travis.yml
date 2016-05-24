@@ -2,18 +2,23 @@ sudo: false
 language: python
 notifications:
   email: false
-env:
-  global:
 python:
-  - 2.7
+  - pypy
   - 2.6
+  - 2.7
+  - pypy3
   - 3.3
   - 3.4
   - 3.5
-install:
+before_install:
   - if [[ $TRAVIS_PYTHON_VERSION == "2.6" ]]; then pip install weakrefset; fi
   - pip install https://github.com/pyexcel/pyexcel-webio/archive/master.zip
-  - pip install -r requirements.txt
+  - if [[ -f min_requirements.txt && "$MINREQ" -eq 1 ]]; then
+      mv min_requirements.txt requirements.txt ;
+    fi
+  - test ! -f rnd_requirements.txt || pip install --upgrade "setuptools" "pip==7.1"
+  - test ! -f rnd_requirements.txt || pip install --no-deps -r rnd_requirements.txt
+  - test ! -f rnd_requirements.txt || pip install -r rnd_requirements.txt ;
   - pip install -r tests/requirements.txt
 script:
   make test
