@@ -10,7 +10,6 @@ python:
   - 3.5
 before_install:
   - if [[ $TRAVIS_PYTHON_VERSION == "2.6" ]]; then pip install weakrefset; fi
-  - pip install https://github.com/pyexcel/pyexcel-webio/archive/master.zip
   - if [[ -f min_requirements.txt && "$MINREQ" -eq 1 ]]; then
       mv min_requirements.txt requirements.txt ;
     fi

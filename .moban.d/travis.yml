@@ -9,5 +9,4 @@ python:
 {%endblock%}
 
 {% block custom_install %}  - if [[ $TRAVIS_PYTHON_VERSION == "2.6" ]]; then pip install weakrefset; fi
-  - pip install https://github.com/pyexcel/pyexcel-webio/archive/master.zip
 {% endblock%}
