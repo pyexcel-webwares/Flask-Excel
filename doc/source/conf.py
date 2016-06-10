@@ -20,6 +20,8 @@ version = '0.0.5'
 release = '0.0.5'
 exclude_patterns = []
 pygments_style = 'sphinx'
+import sys  # noqa
+import os  #noqa
 sys.path.append(os.path.abspath('_themes'))
 html_theme_path = ['_themes']
 html_theme = 'flask_small'
