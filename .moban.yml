@@ -16,3 +16,4 @@ targets:
   - .gitignore: .gitignore.jj2
   - test.sh: test.sh.jj2
   - test.bat: test.sh.jj2
+  - "tests/requirements.txt": "tests/requirements.txt"
