@@ -11,11 +11,15 @@ VERSION = '0.0.5'
 EMAIL = 'wangc_2011 (at) hotmail.com'
 LICENSE = 'New BSD'
 PACKAGES = find_packages(exclude=['ez_setup', 'examples', 'tests'])
-DESCRIPTION = 'A flask extension that provides one application programming interface to read and write data in different excel file formats'
+DESCRIPTION = (
+    'A flask extension that provides one application programming interface ' +
+    'to read and write data in different excel file formats' +
+    ''
+)
 KEYWORDS = [
-   'excel',
-   'python',
-   'pyexcel',
+    'excel',
+    'python',
+    'pyexcel',
         'xls',
         'xlsx',
         'ods',

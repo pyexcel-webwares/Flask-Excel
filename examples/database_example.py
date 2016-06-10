@@ -6,7 +6,8 @@ database_example.py
 from flask import Flask, request, jsonify
 from flask.ext import excel
 
-app=Flask(__name__)
+app = Flask(__name__)
+
 
 @app.route("/upload", methods=['GET', 'POST'])
 def upload_file():
@@ -21,15 +22,18 @@ def upload_file():
     </form>
     '''
 
+
 @app.route("/download", methods=['GET'])
 def download_file():
-    return excel.make_response_from_array([[1,2], [3, 4]], "csv")
+    return excel.make_response_from_array([[1, 2], [3, 4]], "csv")
 
-from flask.ext.sqlalchemy import SQLAlchemy
-from datetime import datetime
-import pyexcel.ext.xls
+from flask.ext.sqlalchemy import SQLAlchemy  # noqa
+from datetime import datetime  # noqa
+# please uncomment the following line if you use pyexcel < 0.2.2
+# import pyexcel.ext.xls
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tmp.db'
 db = SQLAlchemy(app)
+
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -39,7 +43,8 @@ class Post(db.Model):
 
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
     category = db.relationship('Category',
-        backref=db.backref('posts', lazy='dynamic'))
+                               backref=db.backref('posts',
+                                                  lazy='dynamic'))
 
     def __init__(self, title, body, category, pub_date=None):
         self.title = title
@@ -65,20 +70,24 @@ class Category(db.Model):
 
 db.create_all()
 
+
 @app.route("/import", methods=['GET', 'POST'])
 def doimport():
     if request.method == 'POST':
+
         def category_init_func(row):
             c = Category(row['name'])
             c.id = row['id']
             return c
+
         def post_init_func(row):
             c = Category.query.filter_by(name=row['category']).first()
             p = Post(row['title'], row['body'], c, row['pub_date'])
             return p
-        request.save_book_to_database(field_name='file', session=db.session,
-                                      tables=[Category, Post],
-                                      initializers=[category_init_func, post_init_func])
+        request.save_book_to_database(
+            field_name='file', session=db.session,
+            tables=[Category, Post],
+            initializers=[category_init_func, post_init_func])
         return "Saved"
     return '''
     <!doctype html>
@@ -88,6 +97,7 @@ def doimport():
     <input type=file name=file><input type=submit value=Upload>
     </form>
     '''
+
 
 @app.route("/export", methods=['GET'])
 def doexport():
@@ -102,5 +112,5 @@ def docustomexport():
 
 
 if __name__ == "__main__":
-    app.debug=True
+    app.debug = True
     app.run()

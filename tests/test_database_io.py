@@ -37,15 +37,17 @@ class TestBook(TestCase):
 
     def test_book_file(self):
         data = {
-            "category":[
+            "category": [
                 ["id", "name"],
                 [1, "News"],
                 [2, "Sports"]
             ],
-            "post":[
+            "post": [
                 ["id", "title", "body", "pub_date", "category"],
-                [1, "Title A", "formal", datetime(2015,1,20,23,28,29), "News"],
-                [2, "Title B", "informal", datetime(2015,1,20,23,28,30), "Sports"]
+                [1, "Title A", "formal",
+                 datetime(2015, 1, 20, 23, 28, 29), "News"],
+                [2, "Title B", "informal",
+                 datetime(2015, 1, 20, 23, 28, 30), "Sports"]
             ]
         }
         for upload_file_type in ['xls']:
@@ -54,7 +56,8 @@ class TestBook(TestCase):
                 db.create_all()
             print("Uploading %s" % upload_file_type)
             file_name = "test.%s" % upload_file_type
-            io = pe.save_book_as(bookdict=data, dest_file_type=upload_file_type)
+            io = pe.save_book_as(bookdict=data,
+                                 dest_file_type=upload_file_type)
             response = self.app.post('/upload/all',
                                      buffered=True,
                                      data={"file": (io, file_name)},

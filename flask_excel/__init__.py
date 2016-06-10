@@ -33,14 +33,15 @@ def _make_response(content, content_type, status, file_name=None):
     """
     response = Response(content, content_type=content_type, status=status)
     if file_name:
-        response.headers["Content-Disposition"] = "attachment; filename=%s" % (file_name)
+        response.headers["Content-Disposition"] = (
+            "attachment; filename=%s" % (file_name))
     return response
 
 
 webio.ExcelResponse = _make_response
 
 
-from pyexcel_webio import (
+from pyexcel_webio import (  # noqa
     make_response,
     make_response_from_array,
     make_response_from_dict,

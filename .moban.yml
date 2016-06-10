@@ -14,3 +14,5 @@ targets:
   - MANIFEST.in: MANIFEST.in.jj2
   - "doc/source/index.rst": "docs/source/index.rst.jj2"
   - .gitignore: .gitignore.jj2
+  - test.sh: test.sh.jj2
+  - test.bat: test.sh.jj2

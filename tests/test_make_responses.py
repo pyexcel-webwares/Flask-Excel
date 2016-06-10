@@ -2,7 +2,7 @@ from testapp import app
 import pyexcel as pe
 from _compact import OrderedDict
 
-    
+
 class TestSheet:
     def setUp(self):
         app.config['TESTING'] = True
@@ -23,9 +23,9 @@ class TestSheet:
                                      data={"file": (io, "test.xls")},
                                      content_type="multipart/form-data")
             assert response.content_type == "application/vnd.ms-excel"
-            sheet = pe.get_sheet(file_type='xls', file_content=response.data)
+            sheet = pe.get_sheet(file_type='xls',
+                                 file_content=response.data)
             assert sheet.to_array() == self.data
-
 
 
 class TestBook:
@@ -33,9 +33,12 @@ class TestBook:
         app.config['TESTING'] = True
         self.app = app.test_client()
         self.content = OrderedDict()
-        self.content.update({"Sheet1": [[1, 1, 1, 1], [2, 2, 2, 2], [3, 3, 3, 3]]})
-        self.content.update({"Sheet2": [[4, 4, 4, 4], [5, 5, 5, 5], [6, 6, 6, 6]]})
-        self.content.update({"Sheet3": [[u'X', u'Y', u'Z'], [1, 4, 7], [2, 5, 8], [3, 6, 9]]})
+        self.content.update({
+            "Sheet1": [[1, 1, 1, 1], [2, 2, 2, 2], [3, 3, 3, 3]]})
+        self.content.update({
+            "Sheet2": [[4, 4, 4, 4], [5, 5, 5, 5], [6, 6, 6, 6]]})
+        self.content.update({
+            "Sheet3": [[u'X', u'Y', u'Z'], [1, 4, 7], [2, 5, 8], [3, 6, 9]]})
 
     def test_book(self):
         for struct_type in ["book", "book_dict"]:
