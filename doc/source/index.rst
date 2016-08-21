@@ -13,6 +13,17 @@ Welcome to Flask-Excel's documentation!
 :Released: |release|
 :Generated: |today|
 
+Here is a typical conversation between the developer and the user::
+
+ User: "I have uploaded an excel file"
+       "but your application says un-supported file format"
+ Developer: "Did you upload an xlsx file or a csv file?"
+ User: "Well, I am not sure. I saved the data using "
+       "Microsoft Excel. Surely, it must be in an excel format."
+ Developer: "OK. Here is the thing. I were not told to support"
+            "all available excel formats in day 1. Live with it"
+            "or delay the project x number of days."
+
 **Flask-Excel** is based on `pyexcel <https://github.com/pyexcel/pyexcel>`_ and makes
 it easy to consume/produce information stored in excel files over HTTP protocol as
 well as on file system. This library can turn the excel data into a list of lists,
@@ -25,15 +36,6 @@ human resource administrator. It is an un-deniable fact that not all people know
 difference among various excel formats: csv, xls, xlsx. Instead of training those people
 about file formats, this library helps web developers to handle most of the excel file
 formats by providing a common programming interface.
-
-.. note::
- Here is a typical conversation between the developer and the user::
-
-  User: "I have uploaded an excel file"
-        "but your application says un-supported file format"
-  Developer: "Did you upload an xlsx file or a csv file?"
-  User: "Well, I am not sure. I saved the data using "
-        "Microsoft Excel. Surely, it must be in an excel format."
 
 The highlighted features are:
 
