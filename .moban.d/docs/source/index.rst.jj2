@@ -362,10 +362,8 @@ Response methods
    :param file_name: same as :meth:`~flask_excel.make_response`
 {%endblock%}
 
-Indices and tables
---------------------
+{%block changelog%}
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. include:: ../../CHANGELOG.rst
 
+{%endblock%}

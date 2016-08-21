@@ -29,8 +29,8 @@ KEYWORDS = [
 ]
 
 INSTALL_REQUIRES = [
-    'pyexcel>=0.2.0',
-    'pyexcel-webio>=0.0.5',
+    'pyexcel>=0.2.2',
+    'pyexcel-webio>=0.0.7',
     'Flask>=0.10.1',
 ]
 

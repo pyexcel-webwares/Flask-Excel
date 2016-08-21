@@ -480,10 +480,6 @@ Response methods
    :param status: same as :meth:`~flask_excel.make_response`
    :param file_name: same as :meth:`~flask_excel.make_response`
 
-Indices and tables
---------------------
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. include:: ../../CHANGELOG.rst
 
