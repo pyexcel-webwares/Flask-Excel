@@ -9,7 +9,8 @@ Welcome to Flask-Excel's documentation!
 :Author: C.W.
 :Issues: http://github.com/pyexcel/Flask-Excel/issues
 :License: New BSD License
-:Version: |version|
+:Development: |version|
+:Released: |release|
 :Generated: |today|
 
 **Flask-Excel** is based on `pyexcel <https://github.com/pyexcel/pyexcel>`_ and makes
