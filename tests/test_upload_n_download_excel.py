@@ -50,13 +50,29 @@ class TestExcelResponse:
                                      file_content=response.data)
                 sheet.format(int)
                 array = sheet.to_array()
-                assert array == self.data
+                eq_(array, self.data)
+
+    def test_no_file_type(self):
+        file_name = 'issue15'
+        download_file_type = "xls"
+        io = pe.save_as(dest_file_type="xls",
+                        array=self.data)
+        if not PY2:
+            if not isinstance(io, BytesIO):
+                io = BytesIO(io.getvalue().encode('utf-8'))
+        response = self.app.post(
+            '/switch/%s' % download_file_type,
+            buffered=True,
+            data={"file": (io, file_name)},
+            content_type="multipart/form-data")
+        eq_(response.content_type, 'text/html')
+        eq_(response.status_code, 400)
 
     def test_override_file_name(self):
         for file_type in FILE_TYPE_MIME_TABLE.keys():
             file_name = 'override_file_name'
             response = self.app.post('/file_name/%s/%s' % (file_type,
                                                            file_name))
-            assert response.content_type == FILE_TYPE_MIME_TABLE[file_type]
-            assert response.headers.get("Content-Disposition", None) == (
-                    "attachment; filename=%s.%s" % (file_name, file_type))
+            eq_(response.content_type, FILE_TYPE_MIME_TABLE[file_type])
+            eq_(response.headers.get("Content-Disposition", None),
+                ("attachment; filename=%s.%s" % (file_name, file_type)))

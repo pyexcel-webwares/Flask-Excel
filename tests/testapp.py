@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, abort
 from flask.ext import excel
 import pyexcel as pe
 from flask.ext.sqlalchemy import SQLAlchemy
@@ -75,8 +75,11 @@ def respond_array(struct_type):
 
 @app.route("/switch/<file_type>", methods=['POST'])
 def switch(file_type):
-    sheet = request.get_sheet(field_name='file')
-    return excel.make_response(sheet, file_type)
+    try:
+        sheet = request.get_sheet(field_name='file')
+        return excel.make_response(sheet, file_type)
+    except IOError:
+        abort(400)
 
 
 @app.route("/file_name/<file_type>/<file_name>", methods=['POST'])
