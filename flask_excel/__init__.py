@@ -17,9 +17,14 @@ class ExcelRequest(webio.ExcelInputInMultiDict, Request):
     Mix in pyexcel's webio function signatures to Flask request
     """
     def get_file_tuple(self, field_name):
+        """
+        Implement Flask specific way of getting uploaded files
+        """
         filehandle = self.files[field_name]
         filename = filehandle.filename
-        extension = filename.split(".")[1]
+        extension = filename.split(".")[-1]
+        if extension == filename:
+            raise IOError("Failed to find out file extension")
         return extension, filehandle
 
 
