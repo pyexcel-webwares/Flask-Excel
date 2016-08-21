@@ -30,7 +30,7 @@ class TestExcelResponse:
 
     def test_download(self):
         for upload_file_type in FILE_TYPE_MIME_TABLE.keys():
-            file_name = 'test.%s' % upload_file_type
+            file_name = 'issue15.test.%s' % upload_file_type
             for download_file_type in FILE_TYPE_MIME_TABLE.keys():
                 print("Uploading %s Downloading %s" % (
                     upload_file_type, download_file_type))
