@@ -7,7 +7,7 @@ except ImportError:
 
 NAME = 'Flask-Excel'
 AUTHOR = 'C.W.'
-VERSION = '0.0.6'
+VERSION = '0.0.5'
 EMAIL = 'wangc_2011 (at) hotmail.com'
 LICENSE = 'New BSD'
 PACKAGES = find_packages(exclude=['ez_setup', 'examples', 'tests'])
