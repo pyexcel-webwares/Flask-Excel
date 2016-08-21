@@ -42,7 +42,7 @@ to your application.
 The highlighted features are:
 
 #. excel data import into and export from databases
-#. turn uploaded excel file directly into Python data struture
+#. turn uploaded excel file directly into Python data structure
 #. pass Python data structures as an excel file download
 #. provide data persistence as an excel file in server side
 #. supports csv, tsv, csvz, tsvz by default and other formats are supported via
@@ -69,7 +69,7 @@ The highlighted features are:
 .. _pyexcel-ods3: https://github.com/pyexcel/pyexcel-ods3
 .. _pyexcel-text: https://github.com/pyexcel/pyexcel-text
 
-This library makes infomation processing involving various excel files as easy as
+This library makes information processing involving various excel files as easy as
 processing array, dictionary when processing file upload/download, data import into
 and export from SQL databases, information analysis and persistence. It uses
 **pyexcel** and its plugins:
@@ -158,7 +158,7 @@ A minimal application may look like this::
         app.run()
 
 
-The tiny application exposes two urls: one for file upload and the other for file donload. The former url presents a simple file upload html and responds back in json with the content of the uploaded file. Here is an `example file <https://github.com/pyexcel/Flask-Excel/blob/master/examples/example_for_upload.csv>` for testing but you can upload any other excel file. The file upload handler uses `request.get_array` to parse the uploaded file and gets an array back. The parameter **file** is coded in the html form::
+The tiny application exposes two urls: one for file upload and the other for file download. The former url presents a simple file upload html and responds back in json with the content of the uploaded file. Here is an `example file <https://github.com/pyexcel/Flask-Excel/blob/master/examples/example_for_upload.csv>` for testing but you can upload any other excel file. The file upload handler uses `request.get_array` to parse the uploaded file and gets an array back. The parameter **file** is coded in the html form::
 
     <input ... name=file>
 
@@ -190,7 +190,7 @@ Continue with the previous example, the data import and export will be explained
 
     # insert database related code here
 
-Alernatively, you can find the complete example on `github <https://github.com/pyexcel/Flask-Excel/blob/master/examples/database_example.py>`_
+Alternatively, you can find the complete example on `github <https://github.com/pyexcel/Flask-Excel/blob/master/examples/database_example.py>`_
 
 Now let's add the following imports first::
 
@@ -429,7 +429,7 @@ Response methods
 
 .. method:: make_response_from_dict(dict, file_type, status=200, file_name=None)
 
-   :param dict: a dictinary of lists
+   :param dict: a dictionary of lists
    :param file_type: same as :meth:`~flask_excel.make_response`
    :param status: same as :meth:`~flask_excel.make_response`
    :param file_name: same as :meth:`~flask_excel.make_response`

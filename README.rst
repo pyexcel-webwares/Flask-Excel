@@ -40,7 +40,7 @@ to your application.
 The highlighted features are:
 
 #. excel data import into and export from databases
-#. turn uploaded excel file directly into Python data struture
+#. turn uploaded excel file directly into Python data structure
 #. pass Python data structures as an excel file download
 #. provide data persistence as an excel file in server side
 #. supports csv, tsv, csvz, tsvz by default and other formats are supported via
@@ -67,7 +67,7 @@ The highlighted features are:
 .. _pyexcel-ods3: https://github.com/pyexcel/pyexcel-ods3
 .. _pyexcel-text: https://github.com/pyexcel/pyexcel-text
 
-This library makes infomation processing involving various excel files as easy as
+This library makes information processing involving various excel files as easy as
 processing array, dictionary when processing file upload/download, data import into
 and export from SQL databases, information analysis and persistence. It uses
 **pyexcel** and its plugins:
