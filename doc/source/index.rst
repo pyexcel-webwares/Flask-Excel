@@ -32,10 +32,12 @@ lets you focus on data in Flask based web development, instead of file formats.
 
 The idea originated from the common usability problem when developing an excel file
 driven web applications for non-technical office workers: such as office assistant,
-human resource administrator. It is an un-deniable fact that not all people know the
+human resource administrator. The fact is that not all people know the
 difference among various excel formats: csv, xls, xlsx. Instead of training those people
 about file formats, this library helps web developers to handle most of the excel file
-formats by providing a common programming interface.
+formats by providing a common programming interface. To add a specific excel file format
+to you application, all you need is to install an extra pyexcel plugin. No code change
+to your application.
 
 The highlighted features are:
 
