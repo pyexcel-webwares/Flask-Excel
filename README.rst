@@ -1,5 +1,6 @@
 ================================================================================
-Flask-Excel - Let you focus on data, instead of file formats================================================================================
+Flask-Excel - Let you focus on data, instead of file formats
+================================================================================
 
 .. image:: https://api.travis-ci.org/pyexcel/Flask-Excel.svg?branch=master
    :target: http://travis-ci.org/pyexcel/Flask-Excel
