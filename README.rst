@@ -65,7 +65,7 @@ The highlighted features are:
    `pyexcel-xlsxw`_  xlsx(write only)        xlsxwriter    2.6, 2.7, 3.3,
                                                            3.4, pypy, pypy3
    `pyexcel-ods3`_   ods                     ezodf, lxml   2.6, 2.7, 3.3, 3.4
-   `pyexcel-ods`_    ods (python 2.6, 2.7)   odfpy         2.6, 2.7
+   `pyexcel-ods`_    ods (python 2.6, 2.7)   odfpy         2.6, 2.7, 3.3, 3.4
    `pyexcel-text`_   (write only)json, rst,  tabulate      2.6, 2.7, 3.3, 3.4
                      mediawiki, html,                      pypy, pypy3
                      latex, grid, pipe,
