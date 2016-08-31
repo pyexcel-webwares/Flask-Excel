@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, abort
-from flask.ext import excel
+import flask_excel as excel
 import pyexcel as pe
 from flask.ext.sqlalchemy import SQLAlchemy
 from datetime import datetime

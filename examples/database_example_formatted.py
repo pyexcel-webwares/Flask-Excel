@@ -4,8 +4,8 @@ database_example_formatted.py
 :license: New BSD
 """
 from flask import Flask, request, jsonify
-from flask.ext import excel
-from flask.ext.sqlalchemy import SQLAlchemy
+import flask_excel as excel
+from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 # please uncomment the following line if you use pyexcel < 0.2.2
 # import pyexcel.ext.xls

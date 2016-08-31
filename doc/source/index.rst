@@ -115,11 +115,7 @@ Setup
 
 In your application, you must import it before using it::
 
-    from flask.ext import excel
-
-or::
-
-    import flask.ext.excel
+    import flask_excel as excel
 
 Quick start
 --------------------------------------------------------------------------------
@@ -127,7 +123,7 @@ Quick start
 A minimal application may look like this::
 
     from flask import Flask, request, jsonify
-    from flask.ext import excel
+    import flask_excel as excel
     
     app=Flask(__name__)
     
@@ -194,7 +190,7 @@ Alternatively, you can find the complete example on `github <https://github.com/
 
 Now let's add the following imports first::
 
-    from flask.ext.sqlalchemy import SQLAlchemy # sql operations
+    from flask_sqlalchemy import SQLAlchemy # sql operations
     import pyexcel.ext.xls # import it to be able to handle xls file format
 
 Now configure the database connection. Sqllite will be used and **tmp.db** will be used and can be found in your current working directory::

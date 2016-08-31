@@ -4,7 +4,7 @@ tiny_example.py
 :license: GPL v3 or BSD
 """
 from flask import Flask, request, jsonify
-from flask.ext import excel
+import flask_excel as excel
 
 app = Flask(__name__)
 
