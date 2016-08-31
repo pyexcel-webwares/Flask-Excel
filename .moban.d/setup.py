@@ -1,4 +1,11 @@
 {% extends 'setup.py.jj2' %}
+
+{%block compat_block%}
+{%endblock%}
+
+{%block platform_block%}
+{%endblock%}
+
 {%block additional_keywords%}
     'xls',
     'xlsx',

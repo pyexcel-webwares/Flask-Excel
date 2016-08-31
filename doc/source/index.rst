@@ -3,14 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Flask-Excel's documentation!
+`Flask-Excel` - Let you focus on data, instead of file formats
 ================================================================================
 
 :Author: C.W.
+:Source code: http://github.com/pyexcel/Flask-Excel.git
 :Issues: http://github.com/pyexcel/Flask-Excel/issues
 :License: New BSD License
-:Development: |version|
-:Released: |release|
+:Development: |release|
+:Released: |version|
 :Generated: |today|
 
 Here is a typical conversation between the developer and the user::
@@ -49,25 +50,44 @@ The highlighted features are:
    the following plugins:
 
 .. _file-format-list:
+.. _a-map-of-plugins-and-file-formats:
 
 .. table:: A list of file formats supported by external plugins
 
-   ================ ========================================
-   Plugins          Supported file formats
-   ================ ========================================
-   `pyexcel-xls`_   xls, xlsx(r), xlsm(r)
-   `pyexcel-xlsx`_  xlsx
-   `pyexcel-ods3`_  ods (python 2.6, 2.7, 3.3, 3.4)
-   `pyexcel-ods`_   ods (python 2.6, 2.7)
-   `pyexcel-text`_  (write only)json, rst, mediawiki, html
-                    latex, grid, pipe, orgtbl, plain simple
-   ================ ========================================
+   ================= ======================= ============= ==================
+   Package name      Supported file formats  Dependencies  Python versions
+   ================= ======================= ============= ==================
+   `pyexcel-io`_     csv, csvz [#f1]_, tsv,                2.6, 2.7, 3.3,
+                                                           3.4, pypy, pypy3
+                     tsvz [#f2]_
+   `pyexcel-xls`_    xls, xlsx(read only),   xlrd, xlwt    2.6, 2.7, 3.3,
+                                                           3.4, pypy, pypy3
+                     xlsm(read only)
+   `pyexcel-xlsx`_   xlsx                    openpyxl      2.6, 2.7, 3.3,
+                                                           3.4, pypy, pypy3
+   `pyexcel-xlsxw`_  xlsx(write only)        xlsxwriter    2.6, 2.7, 3.3,
+                                                           3.4, pypy, pypy3
+   `pyexcel-ods3`_   ods                     ezodf, lxml   2.6, 2.7, 3.3, 3.4
+   `pyexcel-ods`_    ods (python 2.6, 2.7)   odfpy         2.6, 2.7
+   `pyexcel-text`_   (write only)json, rst,  tabulate      2.6, 2.7, 3.3, 3.4
+                     mediawiki, html,                      pypy, pypy3
+                     latex, grid, pipe,
+                     orgtbl, plain simple
+   ================= ======================= ============= ==================
 
+.. _pyexcel-io: https://github.com/pyexcel/pyexcel-io
 .. _pyexcel-xls: https://github.com/pyexcel/pyexcel-xls
 .. _pyexcel-xlsx: https://github.com/pyexcel/pyexcel-xlsx
 .. _pyexcel-ods: https://github.com/pyexcel/pyexcel-ods
 .. _pyexcel-ods3: https://github.com/pyexcel/pyexcel-ods3
+.. _pyexcel-xlsxw: https://github.com/pyexcel/pyexcel-xlsxw
 .. _pyexcel-text: https://github.com/pyexcel/pyexcel-text
+
+.. rubric:: Footnotes
+
+.. [#f1] zipped csv file
+.. [#f2] zipped tsv file
+
 
 This library makes information processing involving various excel files as easy as
 processing array, dictionary when processing file upload/download, data import into
@@ -81,13 +101,6 @@ and export from SQL databases, information analysis and persistence. It uses
 
 Installation
 -------------------
-
-
-Recently, pyexcel(0.2.2+) and its plugins(0.2.0+) started using newer version of setuptools. Please upgrade your setup tools before install latest pyexcel components:
-
-.. code-block:: bash
-
-    $ pip install --upgrade setuptools
 
 You can install it via pip:
 
@@ -116,6 +129,7 @@ Setup
 In your application, you must import it before using it::
 
     import flask_excel as excel
+
 
 Quick start
 --------------------------------------------------------------------------------

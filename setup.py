@@ -34,6 +34,7 @@ INSTALL_REQUIRES = [
     'Flask>=0.10.1',
 ]
 
+
 EXTRAS_REQUIRE = {
     'xls': ['pyexcel-xls>=0.1.0'],
     'xlsx': ['pyexcel-xlsx>=0.1.0'],
