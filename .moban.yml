@@ -7,12 +7,12 @@ configuration:
 targets:
   - README.rst: README.rst
   - setup.py: setup.py
-  - "doc/source/conf.py": "docs/source/conf.py"
+  - "docs/source/conf.py": "docs/source/conf.py"
   - .travis.yml: travis.yml
   - requirements.txt: requirements.txt
   - LICENSE: LICENSE.jj2
   - MANIFEST.in: MANIFEST.in.jj2
-  - "doc/source/index.rst": "docs/source/index.rst.jj2"
+  - "docs/source/index.rst": "docs/source/index.rst.jj2"
   - .gitignore: .gitignore.jj2
   - test.sh: test.sh.jj2
   - test.bat: test.sh.jj2
