@@ -92,13 +92,16 @@ def swtich_file_name(file_type, file_name):
 def upload_array(struct_type):
     if struct_type == "array":
         array = request.get_array(field_name='file')
-        return excel.make_response_from_array(array, 'xls')
+        return excel.make_response_from_array(array, 'xls',
+                                              sheet_name='test_array')
     elif struct_type == "dict":
         adict = request.get_dict(field_name='file')
-        return excel.make_response_from_dict(adict, 'xls')
+        return excel.make_response_from_dict(adict, 'xls',
+                                             sheet_name='test_array')
     elif struct_type == "records":
         records = request.get_records(field_name='file')
-        return excel.make_response_from_records(records, 'xls')
+        return excel.make_response_from_records(records, 'xls',
+                                                sheet_name='test_array')
     elif struct_type == "book":
         book = request.get_book(field_name='file')
         return excel.make_response(book, 'xls')

@@ -1,6 +1,7 @@
 from testapp import app
 import pyexcel as pe
 from _compact import OrderedDict
+from nose.tools import eq_
 
 
 class TestSheet:
@@ -26,6 +27,7 @@ class TestSheet:
             sheet = pe.get_sheet(file_type='xls',
                                  file_content=response.data)
             assert sheet.to_array() == self.data
+            eq_(sheet.name, 'test_array')
 
 
 class TestBook:
