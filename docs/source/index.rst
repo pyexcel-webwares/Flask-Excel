@@ -195,6 +195,15 @@ The tiny application exposes two urls: one for file upload and the other for fil
 The latter simply throws back a csv file whenever a http request is made to http://localhost:50000/download/. `excel.make_response_from_array` takes a list of lists and a file type as parameters and sets up the mime type of the http response. If you would like to give 'tsvz' a go, please change "csv" to "tsvz".
 
 
+
+Support the project
+-----------------------
+
+If your company has embedded pyexcel and its components into a revenue generating
+product, please `support me on patreon <https://www.patreon.com/pyexcel>`_ to
+maintain the project and develop it further.
+
+
 More excel file formats
 ------------------------
 
