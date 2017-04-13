@@ -91,3 +91,5 @@ ENV/
 .ropeproject
 *~
 commons/
+commons
+.moban.hashes
