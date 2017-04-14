@@ -3,6 +3,6 @@ codecov
 coverage
 flake8
 Flask-SQLAlchemy
-pyexcel-ods>=0.1.0
-pyexcel-xls>=0.1.0
-pyexcel-xlsx>=0.1.0
+pyexcel-ods3>=0.3.0
+pyexcel-xls>=0.3.0
+pyexcel-xlsx>=0.3.0

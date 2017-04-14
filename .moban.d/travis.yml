@@ -1,12 +1,3 @@
 {% extends "travis.yml.jj2" %}
-{%block custom_python_versions%}
-python:
-  - 2.6
-  - 2.7
-  - 3.3
-  - 3.4
-  - 3.5
-{%endblock%}
-
 {% block custom_install %}  - if [[ $TRAVIS_PYTHON_VERSION == "2.6" ]]; then pip install weakrefset; fi
 {% endblock%}
