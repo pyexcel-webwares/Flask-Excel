@@ -136,7 +136,7 @@ or clone it and install it:
 
 .. code-block:: bash
 
-    $ git clone http://github.com/pyexcel/Flask-Excel.git
+    $ git clone https://github.com/pyexcel/Flask-Excel.git
     $ cd Flask-Excel
     $ python setup.py install
 
