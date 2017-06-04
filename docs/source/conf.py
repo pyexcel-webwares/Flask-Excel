@@ -11,6 +11,8 @@ extensions = [
     'sphinx.ext.viewcode',
 ]
 
+intersphinx_mapping = {
+}
 spelling_word_list_filename = 'spelling_wordlist.txt'
 templates_path = ['_templates']
 source_suffix = '.rst'
