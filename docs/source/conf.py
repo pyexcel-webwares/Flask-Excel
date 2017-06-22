@@ -21,7 +21,7 @@ master_doc = 'index'
 project = u'Flask-Excel'
 copyright = u'2015-2017 Onni Software Ltd.'
 version = '0.0.5'
-release = '0.0.5'
+release = '0.0.6'
 exclude_patterns = []
 pygments_style = 'sphinx'
 import sys  # noqa

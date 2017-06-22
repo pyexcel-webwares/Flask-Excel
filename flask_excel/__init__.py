@@ -5,7 +5,7 @@
     A flask extension that provides one application programming interface
     to read and write data in different excel file formats
 
-    :copyright: (c) 2015 by Onni Software Ltd.
+    :copyright: (c) 2015-2017 by Onni Software Ltd and its contributors
     :license: New BSD License
 """
 try:
