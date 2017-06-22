@@ -7,7 +7,7 @@ except ImportError:
 
 NAME = 'Flask-Excel'
 AUTHOR = 'C.W.'
-VERSION = ''
+VERSION = '0.0.6'
 EMAIL = 'wangc_2011@hotmail.com'
 LICENSE = 'New BSD'
 DESCRIPTION = (
