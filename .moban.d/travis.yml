@@ -1,3 +1,13 @@
 {% extends "travis.yml.jj2" %}
+
+{%block test_other_environments%}
+env:
+  - FLASK_VERSION=0.12.2
+  - FLASK_VERSION=0.11.1
+  - FLASK_VERSION=0.10.1
+{%endblock%}
+
+
 {% block custom_install %}  - if [[ $TRAVIS_PYTHON_VERSION == "2.6" ]]; then pip install weakrefset; fi
+  - pip install Flask==$FLASK_VERSION
 {% endblock%}

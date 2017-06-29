@@ -133,6 +133,19 @@ and export from SQL databases, information analysis and persistence. It uses
 
 
 
+Tested Flask Versions
+========================
+
+.. image:: https://img.shields.io/badge/Flask-0.12.2-green.svg
+    :target: http://travis-ci.org/pyexcel/Flask-Excel
+
+.. image:: https://img.shields.io/badge/Flask-0.11.1-green.svg
+    :target: http://travis-ci.org/pyexcel/Flask-Excel
+
+.. image:: https://img.shields.io/badge/Flask-0.10.1-green.svg
+    :target: http://travis-ci.org/pyexcel/Flask-Excel
+
+
 
 Installation
 ================================================================================
