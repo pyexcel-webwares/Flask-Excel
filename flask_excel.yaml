@@ -1,19 +1,18 @@
 overrides: "pyexcel.yaml"
 name: "Flask-Excel"
-version: 0.0.6
-current_version: 0.0.6
+version: 0.0.7
+current_version: 0.0.7
 release: 0.0.6
 webframework: Flask
 dependencies:
-  - pyexcel>=0.2.2
-  - pyexcel-webio>=0.0.7
+  - pyexcel-webio>=0.1.2
   - Flask>=0.10.1
 extra_dependencies:
   - xls:
-    - pyexcel-xls>=0.1.0
+    - pyexcel-xls>=0.4.0
   - xlsx:
-    - pyexcel-xlsx>=0.1.0
+    - pyexcel-xlsx>=0.4.0
   - ods:
-    - pyexcel-ods3>=0.1.0
+    - pyexcel-ods3>=0.4.0
 description: |
   A flask extension that provides one application programming interface to read and write data in different excel file formats
