@@ -11,7 +11,7 @@ from datetime import datetime
 # import pyexcel.ext.xls
 
 app = Flask(__name__)
-
+excel.init_excel(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tmp.db'
 db = SQLAlchemy(app)
 

@@ -10,6 +10,7 @@
 :Source code: http://github.com/pyexcel/Flask-Excel.git
 :Issues: http://github.com/pyexcel/Flask-Excel/issues
 :License: New BSD License
+:Development: |release|
 :Released: |version|
 :Generated: |today|
 
@@ -157,6 +158,9 @@ In your application, you must import it before using it::
 
     import flask_excel as excel
 
+    ...
+    excel.init_excel(app) # required since version 0.0.8
+
 
 Quick start
 --------------------------------------------------------------------------------
@@ -185,6 +189,8 @@ http://localhost:50000/download/. `excel.make_response_from_array` takes a
 list of lists and a file type as parameters and sets up the mime type of the
 http response. If you would like to give 'tsvz' a go, please change "csv" to
 "tsvz".
+
+
 
 
 

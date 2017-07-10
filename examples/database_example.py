@@ -7,6 +7,7 @@ from flask import Flask, request, jsonify
 import flask_excel as excel
 
 app = Flask(__name__)
+excel.init_excel(app)
 
 
 @app.route("/upload", methods=['GET', 'POST'])
@@ -29,8 +30,7 @@ def download_file():
 
 from flask.ext.sqlalchemy import SQLAlchemy  # noqa
 from datetime import datetime  # noqa
-# please uncomment the following line if you use pyexcel < 0.2.2
-# import pyexcel.ext.xls
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tmp.db'
 db = SQLAlchemy(app)
 

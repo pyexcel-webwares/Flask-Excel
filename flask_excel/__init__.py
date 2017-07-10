@@ -17,7 +17,7 @@ except ImportError:
     from urllib.parse import quote
     _PY_VERSION = 3
 
-from flask import Flask, Request, Response
+from flask import Request, Response
 import pyexcel_webio as webio
 
 
@@ -37,10 +37,6 @@ class ExcelRequest(webio.ExcelInputInMultiDict, Request):
         return extension, filehandle
 
 
-# Plug-in the custom request to Flask
-Flask.request_class = ExcelRequest
-
-
 def _make_response(content, content_type, status, file_name=None):
     """
     Custom response function that is called by pyexcel-webio
@@ -57,9 +53,6 @@ def _make_response(content, content_type, status, file_name=None):
     return response
 
 
-webio.ExcelResponse = _make_response
-
-
 from pyexcel_webio import (  # noqa
     make_response,
     make_response_from_array,
@@ -70,3 +63,9 @@ from pyexcel_webio import (  # noqa
     make_response_from_query_sets,
     make_response_from_tables
 )
+
+
+def init_excel(app):
+    app.request_class = ExcelRequest
+    webio.init_webio(_make_response)
+    return app

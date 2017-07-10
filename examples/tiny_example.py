@@ -43,4 +43,5 @@ def download_file_named_in_unicode():
 
 # insert database related code here
 if __name__ == "__main__":
+    excel.init_excel(app)
     app.run()

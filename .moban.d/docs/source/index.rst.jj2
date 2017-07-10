@@ -7,6 +7,9 @@ In your application, you must import it before using it::
 
     import flask_excel as excel
 
+    ...
+    excel.init_excel(app) # required since version 0.0.8
+
 {%endblock%}
 
 {%block quick_start%}

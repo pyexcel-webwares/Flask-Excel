@@ -18,6 +18,7 @@ if platform.python_implementation() == 'PyPy':
 else:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
 db = SQLAlchemy(app)
+excel.init_excel(app)
 
 
 class Post(db.Model):
