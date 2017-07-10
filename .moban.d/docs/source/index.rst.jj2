@@ -8,7 +8,7 @@ In your application, you must import it before using it::
     import flask_excel as excel
 
     ...
-    excel.init_excel(app) # required since version 0.0.8
+    excel.init_excel(app) # required since version 0.0.7
 
 {%endblock%}
 
