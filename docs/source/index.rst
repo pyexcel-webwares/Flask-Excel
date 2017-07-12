@@ -77,6 +77,7 @@ The highlighted features are:
    `pyexcel-handsontable`_  handsontable in html    `handsontable`_ same as above
    `pyexcel-pygal`_         svg chart               `pygal`_        2.7, 3.3, 3.4, 3.5
                                                                     3.6, pypy
+   `pyexcel-sortable`_      sortable table in html  `csvtotable`_   same as above
    ======================== ======================= =============== ==================
 
 .. _pyexcel-io: https://github.com/pyexcel/pyexcel-io
@@ -102,6 +103,8 @@ The highlighted features are:
 .. _pygal: https://github.com/Kozea/pygal
 .. _pyexcel-matplotlib: https://github.com/pyexcel/pyexcel-matplotlib
 .. _matplotlib: https://matplotlib.org
+.. _pyexcel-sortable: https://github.com/pyexcel/pyexcel-sortable
+.. _csvtotable: https://github.com/vividvilla/csvtotable
 
 
 In order to manage the list of plugins installed, you need to use pip to add or remove
@@ -169,10 +172,14 @@ A minimal application may look like this:
 
 .. literalinclude:: ../../examples/tiny_example.py
 
-The tiny application exposes two urls: one for file upload and the other for
-file download. The former url presents a simple file upload html and responds
+The tiny application exposes four urls:
+
+#. one for file upload
+#. three urls for file download.
+
+The first url presents a simple file upload html and responds
 back in json with the content of the uploaded file. Here is an
-`example file <https://github.com/pyexcel/Flask-Excel/blob/master/examples/example_for_upload.csv>`
+`example file <https://github.com/pyexcel/Flask-Excel/blob/master/examples/example_for_upload.csv>`_
 for testing but you can upload any other excel file. The file upload handler
 uses `request.get_array` to parse the uploaded file and gets an array back.
 The parameter **file** is coded in the html form::
@@ -184,8 +191,8 @@ The parameter **file** is coded in the html form::
    in upload_file() function, your browser would display "Bad Request: The
    browser (or proxy) sent a request that this server could not understand."
 
-The latter simply throws back a csv file whenever a http request is made to
-http://localhost:50000/download/. `excel.make_response_from_array` takes a
+The rest of the links simply throw back a csv file whenever a http request is made to
+http://localhost:50000/download/. :meth:`~excel.make_response_from_array` takes a
 list of lists and a file type as parameters and sets up the mime type of the
 http response. If you would like to give 'tsvz' a go, please change "csv" to
 "tsvz".
@@ -240,7 +247,6 @@ Alternatively, you can find the complete example on
 Now let's add the following imports first::
 
     from flask_sqlalchemy import SQLAlchemy # sql operations
-    import pyexcel.ext.xls # import it to be able to handle xls file format
 
 Now configure the database connection. Sqllite will be used and **tmp.db** will
 be used and can be found in your current working directory::
