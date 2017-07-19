@@ -15,6 +15,7 @@ DESCRIPTION = (
     'to read and write data in different excel file formats' +
     ''
 )
+FILES = ['README.rst', 'CHANGELOG.rst']
 KEYWORDS = [
     'excel',
     'python',
@@ -113,7 +114,7 @@ if __name__ == '__main__':
         version=VERSION,
         author_email=EMAIL,
         description=DESCRIPTION,
-        long_description=read_files('README.rst', 'CHANGELOG.rst'),
+        long_description=read_files(*FILES),
         license=LICENSE,
         keywords=KEYWORDS,
         extras_require=EXTRAS_REQUIRE,
