@@ -1,6 +1,18 @@
 Change log
 ================================================================================
 
+0.0.7 - 20.07.2017
+--------------------------------------------------------------------------------
+
+Updated
+********************************************************************************
+
+#. the intialization method has been modified. please call init_excel(app)
+   before you do anything else. This change was made in order to apply for
+   approved flask extension status. And by doing this change, it will support
+   multiple Flask apps and only the app that was initialized with init_excel
+   gets Flask-Excel and other apps in your BIG app won't get affected.
+
 0.0.6 - 22.06.2017
 --------------------------------------------------------------------------------
 

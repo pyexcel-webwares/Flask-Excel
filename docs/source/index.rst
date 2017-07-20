@@ -10,7 +10,6 @@
 :Source code: http://github.com/pyexcel/Flask-Excel.git
 :Issues: http://github.com/pyexcel/Flask-Excel/issues
 :License: New BSD License
-:Development: |release|
 :Released: |version|
 :Generated: |today|
 

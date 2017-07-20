@@ -2,7 +2,7 @@ overrides: "pyexcel.yaml"
 name: "Flask-Excel"
 version: 0.0.7
 current_version: 0.0.7
-release: 0.0.6
+release: 0.0.7
 webframework: Flask
 dependencies:
   - pyexcel-webio>=0.1.2
