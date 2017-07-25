@@ -106,7 +106,7 @@ def filter_out_test_code(file_handle):
         else:
             for keyword in ['|version|', '|today|']:
                 if keyword in line:
-                   break
+                    break
             else:
                 yield line
 
