@@ -199,13 +199,17 @@ Usage
 
 Here are some example codes:
 
+
+.. literalinclude:: ../../examples/tiny_example.py
+   :lines: 7-31, 44-48
+
 .. code-block:: python
 
     from flask import Flask, request, jsonify
     import flask_excel
 
     app=Flask(__name__)
-	flask_excel.init_excel(app)
+    flask_excel.init_excel(app)
 
     @app.route("/upload", methods=['GET', 'POST'])
     def upload_file():
