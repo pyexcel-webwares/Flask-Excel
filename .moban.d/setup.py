@@ -1,4 +1,4 @@
-{% extends 'setup.py.jj2' %}
+{% extends 'pyexcel-setup.py.jj2' %}
 
 {%block compat_block%}
 {%endblock%}
@@ -6,16 +6,7 @@
 {%block platform_block%}
 {%endblock%}
 
-{%block additional_keywords%}
-    'xls',
-    'xlsx',
-    'ods',
-    'csv',
-    'API',
-    'Flask'
-{%endblock %}
-
-{%block additional_classifiers%}
+{%block pyexcel_extra_classifiers%}
     'Topic :: Internet :: WWW/HTTP',
     'Development Status :: 3 - Alpha',
     'Topic :: Software Development :: Libraries :: Python Modules',
