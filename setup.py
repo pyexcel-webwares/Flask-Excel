@@ -17,7 +17,7 @@ DESCRIPTION = (
 )
 URL = 'https://github.com/pyexcel/Flask-Excel'
 DOWNLOAD_URL = '%s/archive/0.0.7.tar.gz' % URL
-FILES = ['README.rst', 'CHANGELOG.rst']
+FILES = ['README.rst',  'CHANGELOG.rst']
 KEYWORDS = [
     'xls',
     'xlsx',

@@ -3,7 +3,7 @@ database_example_formatted.py
 :copyright: (c) 2015 by C. W.
 :license: New BSD
 """
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, redirect
 import flask_excel as excel
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -89,7 +89,7 @@ def doimport():
             field_name='file', session=db.session,
             tables=[Category, Post],
             initializers=[category_init_func, post_init_func])
-        return "Saved"
+        return redirect(url_for('.handson_table'), code=302)
     return '''
     <!doctype html>
     <title>Upload an excel file</title>
@@ -110,6 +110,12 @@ def docustomexport():
     query_sets = Category.query.filter_by(id=1).all()
     column_names = ['id', 'name']
     return excel.make_response_from_query_sets(query_sets, column_names, "xls")
+
+
+@app.route("/handson_view", methods=['GET'])
+def handson_table():
+    return excel.make_response_from_tables(
+        db.session, [Category, Post], 'handsontable.html')
 
 
 if __name__ == "__main__":

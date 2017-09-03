@@ -76,6 +76,10 @@ Now let's add the following imports first::
 
     from flask_sqlalchemy import SQLAlchemy # sql operations
 
+And please make sure that you have pyexcel-xls and pyexcel-handsontable installed::
+
+	pip install pyexcel-xls, pyexcel-handsontable
+
 Now configure the database connection. Sqllite will be used and **tmp.db** will
 be used and can be found in your current working directory::
 
@@ -110,6 +114,18 @@ Write up the view function for data export:
 
 Then run the example again. Visit http://localhost:5000/import and upload
 `sample-data.xls <https://github.com/pyexcel/Flask-Excel/blob/master/sample-data.xls>`_.
+
+And it responds with
+
+.. image:: _static/handson-view.png
+
+This result is rendered via `pyexcel-handsontable <https://github.com/pyexcel/pyexcel-handsontable>`_.
+All you needed is to put 'handsontable.html' as file type:
+
+.. literalinclude:: ../../examples/database_example.py
+   :lines: 115-119
+
+
 Then visit http://localhost:5000/export to download the data back.
 
 Export filtered query sets

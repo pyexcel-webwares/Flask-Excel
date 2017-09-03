@@ -70,18 +70,18 @@ The highlighted features are:
    `pyexcel-ods`_           ods                     `odfpy`_          same as above
    `pyexcel-odsr`_          read only for ods, fods lxml              same as above
    `pyexcel-htmlr`_         html(read only)         lxml,html5lib     same as above
-   `pyexcel-text`_          write only:rst,         `tabulate`_     2.6, 2.7, 3.3, 3.4
-                            mediawiki, html,                        3.5, 3.6, pypy
+   `pyexcel-text`_          write only:rst,         `tabulate`_        2.6, 2.7, 3.3, 3.4
+                            mediawiki, html,                           3.5, 3.6, pypy
                             latex, grid, pipe,
                             orgtbl, plain simple
                             read only: ndjson
                             r/w: json
-   `pyexcel-handsontable`_  handsontable in html    `handsontable`_ same as above
-   `pyexcel-pygal`_         svg chart               `pygal`_        2.7, 3.3, 3.4, 3.5
-                                                                    3.6, pypy
-   `pyexcel-sortable`_      sortable table in html  `csvtotable`_   same as above
-   `pyexcel-gantt`_         gantt chart in html     `frappe-gantt`_ except pypy, same
-                                                                    as above
+   `pyexcel-handsontable`_  handsontable in html    `handsontable`_    same as above
+   `pyexcel-pygal`_         svg chart               `pygal`_           2.7, 3.3, 3.4, 3.5
+                                                                       3.6, pypy
+   `pyexcel-sortable`_      sortable table in html  `csvtotable`_      same as above
+   `pyexcel-gantt`_         gantt chart in html     `frappe-gantt`_    except pypy, same
+                                                                       as above
    ======================== ======================= ================= ==================
 
 .. _pyexcel-io: https://github.com/pyexcel/pyexcel-io
@@ -254,6 +254,10 @@ Now let's add the following imports first::
 
     from flask_sqlalchemy import SQLAlchemy # sql operations
 
+And please make sure that you have pyexcel-xls and pyexcel-handsontable installed::
+
+	pip install pyexcel-xls, pyexcel-handsontable
+
 Now configure the database connection. Sqllite will be used and **tmp.db** will
 be used and can be found in your current working directory::
 
@@ -288,6 +292,17 @@ Write up the view function for data export:
 
 Then run the example again. Visit http://localhost:5000/import and upload
 `sample-data.xls <https://github.com/pyexcel/Flask-Excel/blob/master/sample-data.xls>`_.
+
+And it responds with
+
+.. image:: _static/handson-view.png
+
+This result is rendered via pyexcel-handsontable. All you needed is to put 'handsontable.html' as file type:
+
+.. literalinclude:: ../../examples/database_example.py
+   :lines: 115-119
+
+
 Then visit http://localhost:5000/export to download the data back.
 
 Export filtered query sets

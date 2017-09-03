@@ -1,9 +1,8 @@
 """
 database_example.py
-:copyright: (c) 2015 by C. W.
-:license: New BSD
+:copyright: (c) 2015-2017 by C. W. :license: New BSD
 """
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, redirect, url_for
 import flask_excel as excel
 
 app = Flask(__name__)
@@ -28,10 +27,11 @@ def upload_file():
 def download_file():
     return excel.make_response_from_array([[1, 2], [3, 4]], "csv")
 
-from flask.ext.sqlalchemy import SQLAlchemy  # noqa
+from flask_sqlalchemy import SQLAlchemy  # noqa
 from datetime import datetime  # noqa
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tmp.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
@@ -89,7 +89,7 @@ def doimport():
             field_name='file', session=db.session,
             tables=[Category, Post],
             initializers=[category_init_func, post_init_func])
-        return "Saved"
+        return redirect(url_for('.handson_table'), code=302)
     return '''
     <!doctype html>
     <title>Upload an excel file</title>
@@ -110,6 +110,12 @@ def docustomexport():
     query_sets = Category.query.filter_by(id=1).all()
     column_names = ['id', 'name']
     return excel.make_response_from_query_sets(query_sets, column_names, "xls")
+
+
+@app.route("/handson_view", methods=['GET'])
+def handson_table():
+    return excel.make_response_from_tables(
+        db.session, [Category, Post], 'handsontable.html')
 
 
 if __name__ == "__main__":
