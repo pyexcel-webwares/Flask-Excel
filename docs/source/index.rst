@@ -7,8 +7,8 @@
 ================================================================================
 
 :Author: C.W.
-:Source code: http://github.com/pyexcel/Flask-Excel.git
-:Issues: http://github.com/pyexcel/Flask-Excel/issues
+:Source code: http://github.com/pyexcel-webwares/Flask-Excel.git
+:Issues: http://github.com/pyexcel-webwares/Flask-Excel/issues
 :License: New BSD License
 :Released: |version|
 :Generated: |today|
@@ -169,7 +169,7 @@ or clone it and install it:
 
 .. code-block:: bash
 
-    $ git clone https://github.com/pyexcel/Flask-Excel.git
+    $ git clone https://github.com/pyexcel-webwares/Flask-Excel.git
     $ cd Flask-Excel
     $ python setup.py install
 

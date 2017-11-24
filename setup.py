@@ -15,7 +15,7 @@ DESCRIPTION = (
     'to read and write data in different excel file formats' +
     ''
 )
-URL = 'https://github.com/pyexcel/Flask-Excel'
+URL = 'https://github.com/pyexcel-webwares/Flask-Excel'
 DOWNLOAD_URL = '%s/archive/0.0.7.tar.gz' % URL
 FILES = ['README.rst',  'CHANGELOG.rst']
 KEYWORDS = [

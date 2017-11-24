@@ -5,11 +5,11 @@ Flask-Excel - Let you focus on data, instead of file formats
 .. image:: https://raw.githubusercontent.com/pyexcel/pyexcel.github.io/master/images/patreon.png
    :target: https://www.patreon.com/pyexcel
 
-.. image:: https://api.travis-ci.org/pyexcel/Flask-Excel.svg?branch=master
-   :target: http://travis-ci.org/pyexcel/Flask-Excel
+.. image:: https://api.travis-ci.org/pyexcel-webwares/Flask-Excel.svg?branch=master
+   :target: http://travis-ci.org/pyexcel-webwares/Flask-Excel
 
-.. image:: https://codecov.io/gh/pyexcel/Flask-Excel/branch/master/graph/badge.svg
-   :target: https://codecov.io/gh/pyexcel/Flask-Excel
+.. image:: https://codecov.io/gh/pyexcel-webwares/Flask-Excel/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/pyexcel-webwares/Flask-Excel
 
 .. image:: https://img.shields.io/gitter/room/gitterHQ/gitter.svg
    :target: https://gitter.im/pyexcel/Lobby
@@ -209,7 +209,7 @@ or clone it and install it:
 
 .. code-block:: bash
 
-    $ git clone https://github.com/pyexcel/Flask-Excel.git
+    $ git clone https://github.com/pyexcel-webwares/Flask-Excel.git
     $ cd Flask-Excel
     $ python setup.py install
 
