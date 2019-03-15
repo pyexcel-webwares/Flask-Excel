@@ -5,7 +5,10 @@ Flask-Excel - Let you focus on data, instead of file formats
 .. image:: https://raw.githubusercontent.com/pyexcel/pyexcel.github.io/master/images/patreon.png
    :target: https://www.patreon.com/pyexcel
 
-.. image:: https://api.travis-ci.org/pyexcel-webwares/Flask-Excel.svg?branch=master
+.. image:: https://api.bountysource.com/badge/team?team_id=288537
+   :target: https://salt.bountysource.com/teams/chfw-pyexcel
+
+.. image:: https://travis-ci.org/pyexcel-webwares/Flask-Excel.svg?branch=master
    :target: http://travis-ci.org/pyexcel-webwares/Flask-Excel
 
 .. image:: https://codecov.io/gh/pyexcel-webwares/Flask-Excel/branch/master/graph/badge.svg
@@ -21,12 +24,15 @@ Support the project
 ================================================================================
 
 If your company has embedded pyexcel and its components into a revenue generating
-product, please `support me on patreon <https://www.patreon.com/bePatron?u=5537627>`_ to
-maintain the project and develop it further.
+product, please support me on `patreon <https://www.patreon.com/bePatron?u=5537627>`_
+or `bounty source <https://salt.bountysource.com/teams/chfw-pyexcel>`_ to maintain
+the project and develop it further.
 
-If you are an individual, you are welcome to support me too on patreon and for however long
-you feel like. As a patreon, you will receive
+If you are an individual, you are welcome to support me too and for however long
+you feel like. As my backer, you will receive
 `early access to pyexcel related contents <https://www.patreon.com/pyexcel/posts>`_.
+
+And your issues will get prioritized if you would like to become my patreon as `pyexcel pro user`.
 
 With your financial support, I will be able to invest
 a little bit more time in coding, documentation and writing interesting posts.
@@ -103,8 +109,11 @@ The highlighted features are:
    ======================== ======================= ================= ==================
    `pyexcel-xlsxw`_         xlsx(write only)        `XlsxWriter`_     Python 2 and 3
    `pyexcel-xlsxr`_         xlsx(read only)         lxml              same as above
+   `pyexcel-xlsbr`_         xlsx(read only)         pyxlsb            same as above
    `pyexcel-odsr`_          read only for ods, fods lxml              same as above
+   `pyexcel-odsw`_          write only for ods      loxun             same as above
    `pyexcel-htmlr`_         html(read only)         lxml,html5lib     same as above
+   `pyexcel-pdfr`_          pdf(read only)          pdftables         Python 2 only.
    ======================== ======================= ================= ==================
 
 
@@ -114,8 +123,12 @@ The highlighted features are:
 .. _pyexcel-ods: https://github.com/pyexcel/pyexcel-ods
 .. _pyexcel-ods3: https://github.com/pyexcel/pyexcel-ods3
 .. _pyexcel-odsr: https://github.com/pyexcel/pyexcel-odsr
+.. _pyexcel-odsw: https://github.com/pyexcel/pyexcel-odsw
+.. _pyexcel-pdfr: https://github.com/pyexcel/pyexcel-pdfr
+
 .. _pyexcel-xlsxw: https://github.com/pyexcel/pyexcel-xlsxw
 .. _pyexcel-xlsxr: https://github.com/pyexcel/pyexcel-xlsxr
+.. _pyexcel-xlsbr: https://github.com/pyexcel/pyexcel-xlsbr
 .. _pyexcel-htmlr: https://github.com/pyexcel/pyexcel-htmlr
 
 .. _xlrd: https://github.com/python-excel/xlrd
@@ -319,6 +332,7 @@ Acceptance criteria
 #. Has all code lines tested
 #. Passes all Travis CI builds
 #. Has fair amount of documentation if your change is complex
+#. run 'make format' so as to confirm the pyexcel organisation's coding style
 #. Please update CHANGELOG.rst
 #. Please add yourself to CONTRIBUTORS.rst
 #. Agree on NEW BSD License for your contribution

@@ -1,9 +1,28 @@
-# Template by setupmobans
+#!/usr/bin/env python3
+
+# Template by pypi-mobans
 import os
 import sys
 import codecs
+import locale
+import platform
 from shutil import rmtree
-from setuptools import setup, find_packages, Command
+
+from setuptools import Command, setup, find_packages
+
+
+# Work around mbcs bug in distutils.
+# http://bugs.python.org/issue10945
+# This work around is only if a project supports Python < 3.4
+
+# Work around for locale not being set
+try:
+    lc = locale.getlocale()
+    pf = platform.system()
+    if pf != 'Windows' and lc == (None, None):
+        locale.setlocale(locale.LC_ALL, 'C.UTF-8')
+except (ValueError, UnicodeError, locale.Error):
+    locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 
 NAME = 'Flask-Excel'
 AUTHOR = 'C.W.'
@@ -11,26 +30,23 @@ VERSION = '0.0.7'
 EMAIL = 'wangc_2011@hotmail.com'
 LICENSE = 'New BSD'
 DESCRIPTION = (
-    'A flask extension that provides one application programming interface ' +
-    'to read and write data in different excel file formats' +
-    ''
+    'A flask extension that provides one application programming interface' +
+    'to read and write data in different excel file formats'
 )
 URL = 'https://github.com/pyexcel-webwares/Flask-Excel'
 DOWNLOAD_URL = '%s/archive/0.0.7.tar.gz' % URL
-FILES = ['README.rst',  'CHANGELOG.rst']
+FILES = ['README.rst', 'CHANGELOG.rst']
 KEYWORDS = [
+    'python',
     'xls',
     'xlsx',
     'ods',
     'csv',
     'API',
     'Flask',
-    'python'
 ]
 
 CLASSIFIERS = [
-    'Topic :: Office/Business',
-    'Topic :: Utilities',
     'Topic :: Software Development :: Libraries',
     'Programming Language :: Python',
     'Intended Audience :: Developers',
@@ -60,6 +76,7 @@ INSTALL_REQUIRES = [
     'pyexcel-webio>=0.1.2',
     'Flask>=0.10.1',
 ]
+SETUP_COMMANDS = {}
 
 
 PACKAGES = find_packages(exclude=['ez_setup', 'examples', 'tests'])
@@ -101,6 +118,8 @@ class PublishCommand(Command):
         try:
             self.status('Removing previous builds...')
             rmtree(os.path.join(HERE, 'dist'))
+            rmtree(os.path.join(HERE, 'build'))
+            rmtree(os.path.join(HERE, 'Flask_Excel.egg-info'))
         except OSError:
             pass
 
@@ -115,6 +134,11 @@ class PublishCommand(Command):
                 self.status(UPLOAD_FAILED_MSG % PUBLISH_COMMAND)
 
         sys.exit()
+
+
+SETUP_COMMANDS.update({
+    'publish': PublishCommand
+})
 
 
 def has_gease():
@@ -141,7 +165,8 @@ def read_files(*files):
 
 def read(afile):
     """Read a file into setup"""
-    with codecs.open(afile, 'r', 'utf-8') as opened_file:
+    the_relative_file = os.path.join(HERE, afile)
+    with codecs.open(the_relative_file, 'r', 'utf-8') as opened_file:
         content = filter_out_test_code(opened_file)
         content = "".join(list(content))
         return content
@@ -173,6 +198,7 @@ def filter_out_test_code(file_handle):
 
 if __name__ == '__main__':
     setup(
+        test_suite="tests",
         name=NAME,
         author=AUTHOR,
         version=VERSION,
@@ -190,7 +216,5 @@ if __name__ == '__main__':
         include_package_data=True,
         zip_safe=False,
         classifiers=CLASSIFIERS,
-        cmdclass={
-            'publish': PublishCommand,
-        }
+        cmdclass=SETUP_COMMANDS
     )

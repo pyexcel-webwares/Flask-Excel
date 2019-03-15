@@ -1,4 +1,5 @@
 sudo: false
+dist: xenial
 language: python
 notifications:
   email: false
@@ -7,12 +8,27 @@ env:
   - FLASK_VERSION=0.11.1
   - FLASK_VERSION=0.10.1
 python:
-  - pypy-5.3.1
+  - &pypy2 pypy2.7-6.0
+  - &pypy3 pypy3.5-6.0
+  - 3.8-dev
+  - 3.7
   - 3.6
   - 3.5
-  - 3.4
-  - 3.3
   - 2.7
+
+stages:
+  - test
+  - lint
+jobs:
+  include:
+    - stage: lint
+      python: 3.6
+      script: make lint
+
+stage: test
+
+script: make test
+
 before_install:
   - if [[ $TRAVIS_PYTHON_VERSION == "2.6" ]]; then pip install weakrefset; fi
   - pip install Flask==$FLASK_VERSION
