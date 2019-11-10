@@ -1,25 +1,12 @@
-requires:
-  - type: git
-    url: https://github.com/moremoban/pypi-mobans
-    submodule: true
-  - https://github.com/pyexcel/pyexcel-mobans
+overrides: "git://github.com/pyexcel/pyexcel-mobans!/mobanfile.yaml"
 configuration:
-  configuration_dir: "pyexcel-mobans:config"
-  template_dir:
-    - "pyexcel-mobans:templates"
-    - "pypi-mobans:templates"
-    - ".moban.d"
   configuration: flask_excel.yaml
 targets:
-  - README.rst: README.rst
-  - setup.py: setup.py
+  - README.rst: custom_README.rst.jj2
+  - setup.py: custom_setup.py.jj2
   - "docs/source/conf.py": "docs/source/conf.py"
-  - .travis.yml: travis.yml
-  - requirements.txt: requirements.txt
+  - .travis.yml: custom_travis.yml.jj2
   - MANIFEST.in: MANIFEST.in.jj2
-  - "docs/source/index.rst": "docs/source/index.rst.jj2"
+  - "docs/source/index.rst": "docs/source/flask-excel-index.rst.jj2"
   - .gitignore: gitignore.jj2
-  - test.sh: test.script.jj2
-  - test.bat: test.script.jj2
-  - "tests/requirements.txt": "tests/requirements.txt"
-  - lint.sh: lint.script.jj2
+  - "tests/requirements.txt": "tests/custom_requirements.txt.jj2"
