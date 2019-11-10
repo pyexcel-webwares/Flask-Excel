@@ -241,10 +241,10 @@ Here are some example codes:
 .. code-block:: python
 
     from flask import Flask, request, jsonify
-    import flask_excel as excel
+    import flask_excel
 
     app=Flask(__name__)
-    excel.init_excel(app)
+    flask_excel.init_excel(app)
 
     @app.route("/upload", methods=['GET', 'POST'])
     def upload_file():

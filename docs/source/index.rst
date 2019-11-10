@@ -520,7 +520,7 @@ Response methods
    :param status: same as :meth:`~flask_excel.make_response`
    :param file_name: same as :meth:`~flask_excel.make_response`
 
-.. method:: make_response_from_a_table(session, table, file_type status=200, file_name=None)
+.. method:: make_response_from_a_table(session, table, file_type, status=200, file_name=None)
 
    Produce a single sheet Excel book of *file_type*
 
@@ -530,7 +530,7 @@ Response methods
    :param status: same as :meth:`~flask_excel.make_response`
    :param file_name: same as :meth:`~flask_excel.make_response`
 
-.. method:: make_response_from_query_sets(query_sets, column_names, file_type status=200, file_name=None)
+.. method:: make_response_from_query_sets(query_sets, column_names, file_type, status=200, file_name=None)
 
    Produce a single sheet Excel book of *file_type* from your custom database queries
 
@@ -540,7 +540,7 @@ Response methods
    :param status: same as :meth:`~flask_excel.make_response`
    :param file_name: same as :meth:`~flask_excel.make_response`
 
-.. method:: make_response_from_tables(session, tables, file_type status=200, file_name=None)
+.. method:: make_response_from_tables(session, tables, file_type, status=200, file_name=None)
 
    Produce a multiple sheet Excel book of *file_type*. It becomes the same
    as :meth:`~flask_excel.make_response_from_a_table` if you pass *tables*
