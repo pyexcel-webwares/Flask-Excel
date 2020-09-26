@@ -5,6 +5,9 @@ Flask-Excel - Let you focus on data, instead of file formats
 .. image:: https://raw.githubusercontent.com/pyexcel/pyexcel.github.io/master/images/patreon.png
    :target: https://www.patreon.com/chfw
 
+.. image:: https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg
+   :target: https://awesome-python.com/#specific-formats-processing
+
 .. image:: https://travis-ci.org/pyexcel-webwares/Flask-Excel.svg?branch=master
    :target: http://travis-ci.org/pyexcel-webwares/Flask-Excel
 
@@ -29,7 +32,7 @@ Support the project
 ================================================================================
 
 If your company has embedded pyexcel and its components into a revenue generating
-product, please support me on `patreon <https://www.patreon.com/bePatron?u=5537627>`_
+product, please support me on github, `patreon <https://www.patreon.com/bePatron?u=5537627>`_
 or `bounty source <https://salt.bountysource.com/teams/chfw-pyexcel>`_ to maintain
 the project and develop it further.
 
@@ -69,14 +72,15 @@ lets you focus on data in Flask based web development, instead of file formats.
 
 The idea originated from the common usability problem: when an excel file
 driven web application is delivered for non-developer users (ie: team assistant,
-human resource administrator etc). The fact is that not everyone knows (or cares) about the
-differences between various excel formats: csv, xls, xlsx are all the same to them. Instead of training those users
-about file formats, this library helps web developers to handle most of the excel file
-formats by providing a common programming interface. To add a specific excel file format type
-to you application, all you need is to install an extra pyexcel plugin. Hence no code changes
-to your application and no issues with excel file formats any more. Looking at the
-community, this library and its associated ones try to become a small and easy to
-install alternative to Pandas.
+human resource administrator etc). The fact is that not everyone knows (or cares)
+about the differences between various excel formats: csv, xls, xlsx are all
+the same to them. Instead of training those users about file formats, this
+library helps web developers to handle most of the excel file
+formats by providing a common programming interface. To add a specific excel
+file format type to you application, all you need is to install an extra pyexcel
+plugin. Hence no code changes to your application and no issues with excel file
+formats any more. Looking at the community, this library and its associated ones
+try to become a small and easy to install alternative to Pandas.
 
 
 The highlighted features are:
@@ -120,6 +124,24 @@ The highlighted features are:
    `pyexcel-htmlr`_         html(read only)         lxml,html5lib     same as above
    `pyexcel-pdfr`_          pdf(read only)          pdftables         Python 2 only.
    ======================== ======================= ================= ==================
+
+
+Plugin shopping guide
+------------------------
+
+Except csv files, xls, xlsx and ods files are a zip of a folder containing a lot of
+xml files 
+
+The dedicated readers for excel files can stream read 
+
+
+In order to manage the list of plugins installed, you need to use pip to add or remove
+a plugin. When you use virtualenv, you can have different plugins per virtual
+environment. In the situation where you have multiple plugins that does the same thing
+in your environment, you need to tell pyexcel which plugin to use per function call.
+For example, pyexcel-ods and pyexcel-odsr, and you want to get_array to use pyexcel-odsr.
+You need to append get_array(..., library='pyexcel-odsr').
+
 
 
 .. _pyexcel-io: https://github.com/pyexcel/pyexcel-io
@@ -174,13 +196,6 @@ The highlighted features are:
 .. _csvtotable: https://github.com/vividvilla/csvtotable
 .. _pyexcel-gantt: https://github.com/pyexcel/pyexcel-gantt
 .. _frappe-gantt: https://github.com/frappe/gantt
-
-In order to manage the list of plugins installed, you need to use pip to add or remove
-a plugin. When you use virtualenv, you can have different plugins per virtual
-environment. In the situation where you have multiple plugins that does the same thing
-in your environment, you need to tell pyexcel which plugin to use per function call.
-For example, pyexcel-ods and pyexcel-odsr, and you want to get_array to use pyexcel-odsr.
-You need to append get_array(..., library='pyexcel-odsr').
 
 .. rubric:: Footnotes
 
@@ -320,22 +335,6 @@ Please run::
 
 so as to beautify your code otherwise travis-ci may fail your unit test.
 
-
-And make sure you would have run moban command
----------------------------------------------------------
-
-Additional steps are required:
-
-#. pip install moban
-#. make your changes in `.moban.d` directory, then issue command `moban`
-#. moban
-
-otherwise travis-ci may also fail your unit test.
-
-What is .moban.d
----------------------------------
-
-`.moban.d` stores the specific meta data for the library.
 
 
 

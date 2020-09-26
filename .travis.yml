@@ -36,7 +36,7 @@ stages:
   env:
     - MINREQ=0
   stage: moban
-  install: pip install moban>=0.0.4 gitfs2 pypifs
+  install: pip install moban gitfs2 pypifs moban-jinja2-github moban-ansible
   script:
     - moban
     - git diff --exit-code

@@ -109,7 +109,7 @@ def doexport():
 def docustomexport():
     query_sets = Category.query.filter_by(id=1).all()
     column_names = ['id', 'name']
-    return excel.make_response_from_query_sets(query_sets, column_names, "xls")
+    return excel.make_response_from_query_sets(query_sets, column_names, "xls", dest_sheet_name='helloworld')
 
 
 @app.route("/handson_view", methods=['GET'])

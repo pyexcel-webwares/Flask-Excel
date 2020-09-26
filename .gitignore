@@ -540,3 +540,7 @@ cscope.files
 cscope.out
 cscope.in.out
 cscope.po.out
+
+
+# remove moban hash dictionary
+.moban.hashes
