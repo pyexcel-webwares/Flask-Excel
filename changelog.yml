@@ -14,7 +14,7 @@ releases:
 - changes:
   - action: Updated
     details:
-    - ' `pyexcel#Flask-Excel#22`: support downloadfile name in unicode(including Chinese
+    - '`#22`: support downloadfile name in unicode(including Chinese
       texts)'
   date: 22.06.2017
   version: 0.0.6
@@ -22,13 +22,13 @@ releases:
   - action: Updated
     details:
     - 'compatibility with pyexcel v0.2.2: automatic discovery of pyexcel plugins.'
-    - '`pyexcel#Flask-Excel#15`: file name may have  more than one dot'
+    - '`#15`: file name may have  more than one dot'
   date: 21.08.2016
   version: 0.0.5
 - changes:
   - action: Updated
     details:
-    - '`pyexcel#Flask-Excel#8`: set file name in response'
+    - '`#8`: set file name in response'
   date: 15.01.2016
   version: 0.0.4
 - changes:

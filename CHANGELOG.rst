@@ -17,8 +17,8 @@ Change log
 
 **Updated**
 
-#.  `pyexcel#22 <https://github.com/pyexcel-webwares/pyexcel/issues/22>`_:
-   support downloadfile name in unicode(including Chinese texts)
+#. `#22 <https://github.com/pyexcel-webwares/Flask-Excel/issues/22>`_: support
+   downloadfile name in unicode(including Chinese texts)
 
 0.0.5 - 21.08.2016
 --------------------------------------------------------------------------------
@@ -26,15 +26,15 @@ Change log
 **Updated**
 
 #. compatibility with pyexcel v0.2.2: automatic discovery of pyexcel plugins.
-#. `pyexcel#15 <https://github.com/pyexcel-webwares/pyexcel/issues/15>`_: file
-   name may have more than one dot
+#. `#15 <https://github.com/pyexcel-webwares/Flask-Excel/issues/15>`_: file name
+   may have more than one dot
 
 0.0.4 - 15.01.2016
 --------------------------------------------------------------------------------
 
 **Updated**
 
-#. `pyexcel#8 <https://github.com/pyexcel-webwares/pyexcel/issues/8>`_: set file
+#. `#8 <https://github.com/pyexcel-webwares/Flask-Excel/issues/8>`_: set file
    name in response
 
 0.0.3 - 01.07.2015
