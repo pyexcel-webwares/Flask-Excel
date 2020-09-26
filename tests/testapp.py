@@ -3,7 +3,7 @@ from datetime import datetime
 
 import pyexcel as pe
 from flask import Flask, abort, jsonify, request
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
 import flask_excel as excel
 
