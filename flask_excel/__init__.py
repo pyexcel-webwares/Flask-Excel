@@ -46,7 +46,7 @@ def _make_response(content, content_type, status, file_name=None):
     """
     response = Response(content, content_type=content_type, status=status)
     if file_name:
-        if _PY_VERSION == 2 and isinstance(file_name, unicode):
+        if _PY_VERSION == 2 and isinstance(file_name, unicode):  # noqa
             file_name = file_name.encode("utf-8")
         url_encoded_file_name = quote(file_name)
         response.headers[
@@ -58,9 +58,9 @@ def _make_response(content, content_type, status, file_name=None):
     return response
 
 
+from pyexcel_webio import make_response_from_a_table  # noqa; noqa
 from pyexcel_webio import (
     make_response,
-    make_response_from_a_table,  # noqa
     make_response_from_array,
     make_response_from_book_dict,
     make_response_from_dict,
