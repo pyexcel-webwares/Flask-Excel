@@ -2,6 +2,7 @@
 
 {%block test_other_environments%}
 env:
+  - FLASK_VERSION=1.1.2
   - FLASK_VERSION=0.12.2
   - FLASK_VERSION=0.11.1
   - FLASK_VERSION=0.10.1
