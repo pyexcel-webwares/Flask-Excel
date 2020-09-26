@@ -76,7 +76,7 @@ class TestExcelResponse:
             data={"file": (io, file_name)},
             content_type="multipart/form-data",
         )
-        eq_(response.content_type, "text/html")
+        eq_(response.content_type, "text/html; charset=utf-8")
         eq_(response.status_code, 400)
 
     def test_override_file_name(self):
