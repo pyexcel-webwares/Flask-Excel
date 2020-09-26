@@ -14,19 +14,9 @@ python:
   - 3.6
 
 stages:
-  - lint
   - moban
   - test
 
-
-.lint: &lint
-  git:
-    submodules: false
-  python: 3.6
-  env:
-    - MINREQ=0
-  stage: lint
-  script: make lint
 
 .moban: &moban
   python: 3.6
@@ -46,7 +36,6 @@ jobs:
 stage: test
 
 before_install:
-  - if [[ $TRAVIS_PYTHON_VERSION == "2.6" ]]; then pip install weakrefset; fi
   - pip install Flask==$FLASK_VERSION
   - if [[ -f min_requirements.txt && "$MINREQ" -eq 1 ]]; then
       mv min_requirements.txt requirements.txt ;

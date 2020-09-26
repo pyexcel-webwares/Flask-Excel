@@ -15,6 +15,5 @@ python:
 {%endblock%}
 
 
-{% block custom_install %}  - if [[ $TRAVIS_PYTHON_VERSION == "2.6" ]]; then pip install weakrefset; fi
-  - pip install Flask==$FLASK_VERSION
+{% block custom_install %}  - pip install Flask==$FLASK_VERSION
 {% endblock%}

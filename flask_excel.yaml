@@ -24,3 +24,4 @@ keywords:
   - Flask
 description: |
   A flask extension that provides one application programming interface to read and write data in different excel file formats
+lint_command: false
