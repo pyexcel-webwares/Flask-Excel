@@ -14,5 +14,7 @@ python:
 {%endblock%}
 
 
-{% block custom_install %}  - pip install Flask==$FLASK_VERSION
+{% block custom_install %}  - if [ -n "$FLASK_VERSION" ]; then
+      pip install Flask==$FLASK_VERSION;
+    fi
 {% endblock%}

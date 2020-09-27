@@ -13,8 +13,29 @@ python:
   - 3.6
 
 stages:
+  - lint
+  - moban
   - test
 
+
+.lint: &lint
+  git:
+    submodules: false
+  python: 3.6
+  env:
+    - MINREQ=0
+  stage: lint
+  script: make lint
+
+.moban: &moban
+  python: 3.6
+  env:
+    - MINREQ=0
+  stage: moban
+  install: pip install moban gitfs2 pypifs moban-jinja2-github moban-ansible
+  script:
+    - moban
+    - git diff --exit-code
 
 jobs:
   include:
@@ -24,7 +45,9 @@ jobs:
 stage: test
 
 before_install:
-  - pip install Flask==$FLASK_VERSION
+  - if [ -n "$FLASK_VERSION" ]; then
+      pip install Flask==$FLASK_VERSION;
+    fi
   - if [[ -f min_requirements.txt && "$MINREQ" -eq 1 ]]; then
       mv min_requirements.txt requirements.txt ;
     fi
