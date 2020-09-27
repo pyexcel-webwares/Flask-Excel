@@ -5,9 +5,7 @@ notifications:
   email: false
 env:
   - FLASK_VERSION=1.1.2
-  - FLASK_VERSION=0.12.2
-  - FLASK_VERSION=0.11.1
-  - FLASK_VERSION=0.10.1
+  - FLASK_VERSION=1.0.4
 python:
   - 3.9-dev
   - 3.8

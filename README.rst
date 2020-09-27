@@ -219,15 +219,17 @@ and export from SQL databases, information analysis and persistence. It uses
 Tested Flask Versions
 ========================
 
-.. image:: https://img.shields.io/badge/Flask-0.12.2-green.svg
+Since 2020 Auguest, latest pyexcel-io version 0.6.0 forced Flask-Excel to use
+Python 3.6+
+
+.. image:: https://img.shields.io/badge/Flask-1.1.2-green.svg
     :target: http://travis-ci.org/pyexcel/Flask-Excel
 
-.. image:: https://img.shields.io/badge/Flask-0.11.1-green.svg
+.. image:: https://img.shields.io/badge/Flask-1.0.4-green.svg
     :target: http://travis-ci.org/pyexcel/Flask-Excel
 
-.. image:: https://img.shields.io/badge/Flask-0.10.1-green.svg
-    :target: http://travis-ci.org/pyexcel/Flask-Excel
-
+For older Flask versions and lower Python version, please use
+pyexcel-io<=0.5.20.
 
 
 Installation
