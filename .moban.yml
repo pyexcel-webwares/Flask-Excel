@@ -4,7 +4,7 @@ configuration:
 targets:
   - README.rst: custom_README.rst.jj2
   - setup.py: custom_setup.py.jj2
-  - "docs/source/conf.py": "docs/source/conf.py"
+  - "docs/source/conf.py": "docs/source/custom_conf.py.jj2"
   - .travis.yml: custom_travis.yml.jj2
   - MANIFEST.in: MANIFEST.in.jj2
   - "docs/source/index.rst": "docs/source/flask-excel-index.rst.jj2"
