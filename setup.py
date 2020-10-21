@@ -34,7 +34,7 @@ EMAIL = "info@pyexcel.org"
 LICENSE = "New BSD"
 DESCRIPTION = (
     "A flask extension that provides one application programming interface" +
-    "to read and write data in different excel file formats "
+    "to read and write data in different excel file formats"
 )
 URL = "https://github.com/pyexcel-webwares/Flask-Excel"
 DOWNLOAD_URL = "%s/archive/0.0.7.tar.gz" % URL

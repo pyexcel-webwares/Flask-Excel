@@ -27,6 +27,6 @@ test_dependencies:
   - pyexcel-ods3>=0.3.0
   - pyexcel-xls>=0.3.0
   - pyexcel-xlsx>=0.3.0
-description: |
+description: |-
   A flask extension that provides one application programming interface to read and write data in different excel file formats
 flake8_options: --ignore=F401,E402

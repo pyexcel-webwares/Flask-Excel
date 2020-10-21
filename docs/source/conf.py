@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 DESCRIPTION = (
     'A flask extension that provides one application programming interface ' +
-    'to read and write data in different excel file formats
-' +
+    'to read and write data in different excel file formats' +
     ''
 )
 # Configuration file for the Sphinx documentation builder.
