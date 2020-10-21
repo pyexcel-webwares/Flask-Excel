@@ -6,7 +6,7 @@
 `Flask-Excel` - Let you focus on data, instead of file formats
 ================================================================================
 
-:Author: chfw
+:Author: C.W.
 :Source code: http://github.com/pyexcel-webwares/Flask-Excel.git
 :Issues: http://github.com/pyexcel-webwares/Flask-Excel/issues
 :License: New BSD License

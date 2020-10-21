@@ -28,7 +28,7 @@ except (ValueError, UnicodeError, locale.Error):
     locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
 
 NAME = "Flask-Excel"
-AUTHOR = "chfw"
+AUTHOR = "C.W."
 VERSION = "0.0.7"
 EMAIL = "info@pyexcel.org"
 LICENSE = "New BSD"
@@ -95,7 +95,7 @@ EXTRAS_REQUIRE = {
 PUBLISH_COMMAND = "{0} setup.py sdist bdist_wheel upload -r pypi".format(sys.executable)
 HERE = os.path.abspath(os.path.dirname(__file__))
 
-GS_COMMAND = ("gs Flask-Excel v0.0.7 " +
+GS_COMMAND = ("gease Flask-Excel v0.0.7 " +
               "Find 0.0.7 in changelog for more details")
 NO_GS_MESSAGE = ("Automatic github release is disabled. " +
                  "Please install gease to enable it.")
