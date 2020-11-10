@@ -468,7 +468,7 @@ ExcelRequest
 
 .. method:: isave_to_database(field_name=None, session=None, table=None, initializer=None, mapdict=None **keywords)
 
-   similar to :meth:`:meth:`~flask_excel.ExcelRequest.save_to_database`. But it requires
+   similar to :meth:`~flask_excel.ExcelRequest.save_to_database`. But it requires
    less memory.
 
    This requires column names must be at the first row.
@@ -484,7 +484,7 @@ ExcelRequest
 
 .. method:: isave_book_to_database(field_name=None, session=None, tables=None, initializers=None, mapdicts=None, **keywords)
 
-   similar to :meth:`:meth:`~flask_excel.ExcelRequest.save_book_to_database`. But it requires
+   similar to :meth:`~flask_excel.ExcelRequest.save_book_to_database`. But it requires
    less memory.
 
    This requires column names must be at the first row in each sheets
