@@ -388,8 +388,8 @@ database table              :meth:`~flask_excel.ExcelRequest.save_to_database`  
 a list of database tables   :meth:`~flask_excel.ExcelRequest.save_book_to_database`  :meth:`~flask_excel.make_response_from_tables`
                             :meth:`~flask_excel.ExcelRequest.isave_book_to_database`
 a database query sets                                                                :meth:`~flask_excel.make_response_from_query_sets`
-a generator for records     :meth:`~django_excel.ExcelMixin.iget_records`
-a generator of lists        :meth:`~django_excel.ExcelMixin.iget_array`
+a generator for records     :meth:`~flask_excel.ExcelRequest.iget_records`
+a generator of lists        :meth:`~flask_excel.ExcelRequest.iget_array`
 =========================== ======================================================== ==================================================
 
 See more examples of the data structures in :ref:`pyexcel documentation<pyexcel:a-list-of-data-structures>`
@@ -397,7 +397,7 @@ See more examples of the data structures in :ref:`pyexcel documentation<pyexcel:
 API Reference
 ---------------
 
-**Flask-Excel** attaches **pyexcel** functions to :class:`~flask.request.Request` class.
+**Flask-Excel** attaches **pyexcel** functions to :class:`flask.Request` class.
 
 .. module:: flask_excel.ExcelRequest
 
@@ -410,7 +410,7 @@ ExcelRequest
    :param sheet_name: For an excel book, there could be multiple sheets. If it is left
                       unspecified, the sheet at index 0 is loaded. For 'csv', 'tsv' file,
                       *sheet_name* should be None anyway.
-   :param keywords: additional keywords to :meth:`pyexcel.get_sheet`
+   :param keywords: additional keywords to :func:`pyexcel.get_sheet`
    :returns: A sheet object
 
    The following html form, the *field_name* should be "file"::
@@ -426,7 +426,7 @@ ExcelRequest
 
    :param field_name: same as :meth:`~flask_excel.ExcelRequest.get_sheet`
    :param sheet_name: same as :meth:`~flask_excel.ExcelRequest.get_sheet`
-   :param keywords: additional keywords to pyexcel library
+   :param keywords:  additional keywords to :func:`pyexcel.get_array`
    :returns: a two dimensional array, a list of lists
 
 .. method:: get_dict(field_name=None, sheet_name=None, name_columns_by_row=0, **keywords)
@@ -434,7 +434,7 @@ ExcelRequest
    :param field_name: same as :meth:`~flask_excel.ExcelRequest.get_sheet`
    :param sheet_name: same as :meth:`~flask_excel.ExcelRequest.get_sheet`
    :param name_columns_by_row: uses the first row of the sheet to be column headers by default.
-   :param keywords: additional keywords to pyexcel library
+   :param keywords: additional keywords to :func:`pyexcel.get_dict`
    :returns: a dictionary of the file content
 
 .. method:: get_records(field_name=None, sheet_name=None, name_columns_by_row=0, **keywords)
@@ -442,19 +442,19 @@ ExcelRequest
    :param field_name: same as :meth:`~flask_excel.ExcelRequest.get_sheet`
    :param sheet_name: same as :meth:`~flask_excel.ExcelRequest.get_sheet`
    :param name_columns_by_row: uses the first row of the sheet to be record field names by default.
-   :param keywords: additional keywords to pyexcel library
+   :param keywords: additional keywords to :func:`pyexcel.get_records`
    :returns: a list of dictionary of the file content
 
 .. method:: get_book(field_name=None, **keywords)
 
    :param field_name: same as :meth:`~flask_excel.ExcelRequest.get_sheet`
-   :param keywords: additional keywords to pyexcel library
+   :param keywords: additional keywords to :func:`pyexcel.get_book`
    :returns: a two dimensional array, a list of lists
 
 .. method:: get_book_dict(field_name=None, **keywords)
 
    :param field_name: same as :meth:`~flask_excel.ExcelRequest.get_sheet`
-   :param keywords: additional keywords to pyexcel library
+   :param keywords: additional keywords to :func:`pyexcel.get_book_dict`
    :returns: a two dimensional array, a list of lists
 
 .. method:: save_to_database(field_name=None, session=None, table=None, initializer=None, mapdict=None **keywords)
@@ -468,7 +468,7 @@ ExcelRequest
 
 .. method:: isave_to_database(field_name=None, session=None, table=None, initializer=None, mapdict=None **keywords)
 
-   similar to :meth:`:meth:`~flask_excel.ExcelRequest.isave_to_database`. But it requires
+   similar to :meth:`:meth:`~flask_excel.ExcelRequest.save_to_database`. But it requires
    less memory.
 
    This requires column names must be at the first row.
@@ -484,7 +484,7 @@ ExcelRequest
 
 .. method:: isave_book_to_database(field_name=None, session=None, tables=None, initializers=None, mapdicts=None, **keywords)
 
-   similar to :meth:`:meth:`~flask_excel.ExcelRequest.isave_book_to_database`. But it requires
+   similar to :meth:`:meth:`~flask_excel.ExcelRequest.save_book_to_database`. But it requires
    less memory.
 
    This requires column names must be at the first row in each sheets
