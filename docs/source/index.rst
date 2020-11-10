@@ -200,9 +200,9 @@ or clone it and install it:
     $ cd Flask-Excel
     $ python setup.py install
 
-Installation of individual plugins , please refer to individual plugin page. For example, if you need xls file support, please install pyexcel-xls::
+Installation of individual plugins , please refer to individual plugin page. For example, if you need xlsx file support, please install pyexcel-xlsx::
 
-        $ pip install pyexcel-xls
+        $ pip install pyexcel-xlsx
 
 
 Setup
@@ -397,7 +397,7 @@ See more examples of the data structures in :ref:`pyexcel documentation<pyexcel:
 API Reference
 ---------------
 
-**Flask-Excel** attaches **pyexcel** functions to **Request** class.
+**Flask-Excel** attaches **pyexcel** functions to :class:`~flask.request.Request` class.
 
 .. module:: flask_excel.ExcelRequest
 

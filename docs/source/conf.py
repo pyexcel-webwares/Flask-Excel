@@ -86,5 +86,7 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 intersphinx_mapping.update({
+  'pyexcel': ('http://pyexcel.readthedocs.io/en/latest/', None),
+  'flask': ('https://flask.palletsprojects.com/en/1.1.x/', None)
 })
 master_doc = "index"

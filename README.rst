@@ -19,7 +19,7 @@ Flask-Excel - Let you focus on data, instead of file formats
 
 
 .. image:: https://pepy.tech/badge/Flask-Excel/month
-   :target: https://pepy.tech/project/Flask-Excel/month
+   :target: https://pepy.tech/project/Flask-Excel
 
 
 .. image:: https://img.shields.io/gitter/room/gitterHQ/gitter.svg

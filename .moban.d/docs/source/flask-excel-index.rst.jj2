@@ -163,7 +163,7 @@ a generator of lists        :meth:`~django_excel.ExcelMixin.iget_array`
 {%endblock%}
 
 {%block api_doc %}
-**Flask-Excel** attaches **pyexcel** functions to **Request** class.
+**Flask-Excel** attaches **pyexcel** functions to :class:`~flask.request.Request` class.
 
 .. module:: flask_excel.ExcelRequest
 
